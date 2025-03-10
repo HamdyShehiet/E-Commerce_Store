@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --bg-clr:#ffffff;
+    --primaryOne-clr:#ffffff;
+    --primaryTwo-clr:#363738;
+    --secondaryOne-clr:#fefaf1;
+    --secondaryTwo-clr:#f5f5f5;
+    --secondaryThree-clr:#db4444;
+    --secondaryFour-clr:#47b486;
+    --textOne-clr:#fafafa;
+    --textTwo-clr:#7D8184;
+    --hoverBtnOne-clr:#E07575;
+    --hoverBtnOne-clr:#A0BCE0;
+}
+body{
+    background-color: var(--bg-clr);
+}
