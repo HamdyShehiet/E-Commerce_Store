@@ -4,6 +4,7 @@ import Banar from './components/layouts/Banar'
 import Footer from './components/layouts/Footer'
 import Header from './components/layouts/Header'
 import { Route, Routes } from 'react-router-dom'
+import NotFound from './components/pages/NotFound'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Banar/>
       <Header />
       <Routes>
+        <Route path='*' element={<NotFound />}/>
         <Route path='/' element={<Home />}/>
       </Routes>
       <Footer/>
