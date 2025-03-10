@@ -14,9 +14,9 @@
     --textTwo-clr:#7D8184;
     --hoverBtnOne-clr:#E07575;
     --hoverBtnOne-clr:#A0BCE0;
-    --poppins-ff:"Poppins", sans-serif;
-    --inter-ff: "Inter", sans-serif;
+    --poppins:"Poppins", sans-serif;
+    --inter: "Inter", sans-serif;
 }
-body{
+body{    
     background-color: var(--bg-clr);
 }
