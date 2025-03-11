@@ -1,7 +1,7 @@
 function NotFound(){
     return(
         <>
-        <p className="text-2xl">NotFound</p>
+        <h1 className="text-4xl">NotFound</h1>
         </>
     )
 }

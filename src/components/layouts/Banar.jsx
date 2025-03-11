@@ -7,7 +7,7 @@ function Banar(){
     return(
         <>
         <div className="sticky top-0 bg-black py-2">
-            <div className="container flex items-center mx-auto px-2 font-[Poppins]">
+            <div className="container flex items-center mx-auto font-[Poppins]">
                 <div className="flex flex-wrap items-center justify-start lg:justify-center grow-[2] gap-2 text-white">
                     <p className="hidden lg:block text-sm font-normal">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
                     <Link to="/" className="text-base font-semibold underline">ShopNow</Link>
