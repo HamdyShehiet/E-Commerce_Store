@@ -28,14 +28,14 @@ body{
         display: none;
         position: absolute;
         right: 12px;
-        top: 65px;
+        top: 60px;
         z-index: 9;
         max-width: 240px;
         width: 100%;
-        padding-block: 10px;
+        padding:10px 24px;
         border-radius: 16px;
         transition: all 700ms ease;
-        color: white;
+        color: var(--textOne-clr);
         background-color: var(--primaryTwo-clr);
     }
     header .container nav ul.menu{
@@ -43,17 +43,19 @@ body{
     }
     header .container nav ul li a{
         display: block;
+        margin-block: 12px;
         text-align: center;
-        margin-block: 8px;
     }
+}
+@media (max-width:1023px) {
     header .container nav .search-box{
         display: none;
         justify-content: space-between;
         position: absolute;
         right: 80px;
-        top: 65px;
+        top: 60px;
         z-index: 8;
-        max-width: 270px;
+        max-width: clamp(238px,70vw,340px);
         width: 100%;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .1);
     }
@@ -61,13 +63,14 @@ body{
         display: flex;
     }
 }
-/* after:absolute after:cotents-[''] after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-green-900 */
 @media (min-width:1024px) {
     header .container nav ul{
         display: flex;
         align-items: center;
         gap: 25px;
     } 
+}
+@media (min-width:1024px) {
     header .container nav ul li a:after{
         content: "";
         position: absolute;
@@ -81,8 +84,5 @@ body{
     header .container nav ul li>a.active::after,
     header .container nav ul li>a:hover::after{
         width: 100%;
-    }
-    header .container nav .search-box{
-        gap: 25px;
     }
 }

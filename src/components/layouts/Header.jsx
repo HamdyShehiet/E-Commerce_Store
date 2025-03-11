@@ -26,11 +26,14 @@ function Header(){
                         <li>
                             <NavLink to="/signup" onClick={menuHidden} className={`relative lg:pb-1`}>Sign Up</NavLink>
                         </li>
+                        <li className="lg:hidden">
+                            <NavLink to="/login" onClick={menuHidden} className={`relative lg:pb-1`}>Login</NavLink>
+                        </li>
                     </ul>
                     <div className="flex items-center gap-4 font-[poppins]">
                         <Search searchBox={searchBox}/>
-                        <button onClick={()=>{setSearchBox(!searchBox)}} className="lg:hidden text-xl text-[--primaryTwo-clr]">
-                            <i className="fa-solid fa-magnifying-glass"></i>
+                        <button onClick={()=>{setSearchBox(!searchBox)}} className={`${searchBox ? "fa-xmark" : "fa-magnifying-glass" } lg:hidden text-xl text-[--primaryTwo-clr]`}>
+                            <i className="fa-solid"></i>
                         </button>
                         <button className="text-xl text-[--primaryTwo-clr]">
                             <i className="fa-regular fa-heart"></i>
