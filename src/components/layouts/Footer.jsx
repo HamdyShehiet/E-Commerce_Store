@@ -2,9 +2,9 @@ import { Link } from "react-router-dom"
 
 function Footer(){
     return(
-        <footer className="bg-black text-[--textOne-clr]">
-            <section className="py-14">
-                <div className="container grid justify-start md:justify-center gap-y-5 gap-x-4 grid-cols-[repeat(auto-fit,_min(300px,_100%))] mx-auto">
+        <footer className="bg-black">
+            <section className="py-14 border-b-[1px] border-[--primaryTwo-clr]">
+                <div className="container grid justify-start md:justify-center gap-y-5 gap-x-4 grid-cols-[repeat(auto-fit,_min(300px,_100%))] mx-auto text-[--textOne-clr]">
                     <div className="flex flex-col items-start gap-6">
                         <Link to="/" className="font-[inter] text-2xl font-bold">Exclusive</Link>
                         <span className="font-[poppins] text-xl font-medium">Subscribe</span>
@@ -58,6 +58,11 @@ function Footer(){
                             <li><a href="/" target="_blank"><img src="/public/icons/linked-in.png" alt="LinkedIn Icon" /></a></li>
                         </ul>
                     </div>
+                </div>
+            </section>
+            <section className="py-5">
+                <div className="container mx-auto text-[--textOne-clr]">
+                    <p className="text-center text-base font-normal">&copy; CopyRight Rimel 2022. All right reserved</p>
                 </div>
             </section>
         </footer>
