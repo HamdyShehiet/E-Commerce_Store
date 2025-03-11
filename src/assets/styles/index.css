@@ -61,12 +61,27 @@ body{
         display: flex;
     }
 }
+/* after:absolute after:cotents-[''] after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-green-900 */
 @media (min-width:1024px) {
     header .container nav ul{
         display: flex;
         align-items: center;
         gap: 25px;
     } 
+    header .container nav ul li a:after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        background-color: #000000;
+        transition: all 700ms ease;
+    }
+    header .container nav ul li>a.active::after,
+    header .container nav ul li>a:hover::after{
+        width: 100%;
+    }
     header .container nav .search-box{
         gap: 25px;
     }

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Search from "../utils/Search"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 function Header(){
     const [menu, setMenu] = useState(false)
@@ -15,16 +15,16 @@ function Header(){
                 <nav className="flex items-center justify-end lg:justify-between grow-[1]">
                     <ul className={`${menu ? "menu" : "" } font-[poppins] text-base font-normal`}>
                         <li>
-                            <Link to="/" onClick={menuHidden}>Home</Link>
+                            <NavLink to="/" onClick={menuHidden} className={`relative lg:pb-1`}>Home</NavLink>
                         </li>
                         <li>
-                            <Link to="/contact" onClick={menuHidden}>Contact</Link>
+                            <NavLink to="/contact" onClick={menuHidden} className={`relative lg:pb-1`}>Contact</NavLink>
                         </li>
                         <li>
-                            <Link to="/about" onClick={menuHidden}>About</Link>
+                            <NavLink to="/about" onClick={menuHidden} className={`relative lg:pb-1`}>About</NavLink>
                         </li>
                         <li>
-                            <Link to="/signup" onClick={menuHidden}>Sign Up</Link>
+                            <NavLink to="/signup" onClick={menuHidden} className={`relative lg:pb-1`}>Sign Up</NavLink>
                         </li>
                     </ul>
                     <div className="flex items-center gap-4 font-[poppins]">
