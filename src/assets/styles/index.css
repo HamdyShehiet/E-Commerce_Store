@@ -22,15 +22,16 @@ body{
     background-color: var(--bg-clr);
 }
 body::-webkit-scrollbar,
-.hero .categories::-webkit-scrollbar {
-    width: .3em;
+.srcrollbar-v::-webkit-scrollbar {
+    width: .2em;
 }
-body::-webkit-scrollbar-track,
-.hero .categories::-webkit-scrollbar-track {
+.srcrollbar-h::-webkit-scrollbar{
+    height: .1rem;
+}
+.scrollbar-track::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
 }
-body::-webkit-scrollbar-thumb,
-.hero .categories::-webkit-scrollbar-thumb {
+.scrollbar-thumb::-webkit-scrollbar-thumb{
     border-radius: 10px;
     background: var(--border-clr);
 }

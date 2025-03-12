@@ -1,15 +1,18 @@
 import { useState } from "react"
 import Search from "../utils/Search"
 import { Link, NavLink } from "react-router-dom"
+import Categories from "../utils/Categories"
 
 function Header(){
     const [menu, setMenu] = useState(false)
     const [searchBox, setSearchBox] = useState(false)
+    const [categoriesOpen, setCategoriesOpen] = useState(false)
     const menuHidden = ()=>{
         setMenu(false)
     }
     return(
-        <header className="sticky top-0 z-10 py-5 border-b-[1px] border-solid border-[--border-clr] bg-white ">
+        <>
+        <header className="sticky top-0 z-10 py-5 border-b-[1px] border-solid border-[--border-clr] bg-white">
             <div className="container  flex items-center gap-10 relative mx-auto">
                 <Link to="/" className="grow-[1] text-2xl font-[inter] font-bold">Exclusive</Link>
                 <nav className="flex items-center justify-end lg:justify-between grow-[1]">
@@ -32,11 +35,14 @@ function Header(){
                     </ul>
                     <div className="flex items-center gap-4 font-[poppins]">
                         <Search searchBox={searchBox}/>
-                        <button onClick={()=>{setSearchBox(!searchBox)}} className={`${searchBox ? "fa-xmark" : "fa-magnifying-glass" } lg:hidden text-xl text-[--primaryTwo-clr]`}>
-                            <i className="fa-solid"></i>
+                        <button onClick={()=>{setSearchBox(!searchBox)}} className="lg:hidden text-xl text-[--primaryTwo-clr]">
+                            <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
                         <button className="text-xl text-[--primaryTwo-clr]">
                             <i className="fa-regular fa-heart"></i>
+                        </button>
+                        <button onClick={()=>{setCategoriesOpen(!categoriesOpen)}} className="xl:hidden text-xl text-[--primaryTwo-clr]">
+                            <i class="fa-solid fa-icons"></i>
                         </button>
                         <button className="text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-cart-shopping"></i>
@@ -46,8 +52,10 @@ function Header(){
                         </button>
                     </div>
                 </nav>
+                {categoriesOpen && <Categories/>}
             </div>
         </header>
+        </>
     )
 }
 export default Header
