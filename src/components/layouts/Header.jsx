@@ -9,7 +9,7 @@ function Header(){
         setMenu(false)
     }
     return(
-        <header className="sticky top-0 z-10 py-5 border-b-[1px] border-solid border-[--primaryTwo-clr] bg-white ">
+        <header className="sticky top-0 z-10 py-5 border-b-[1px] border-solid border-[--border-clr] bg-white ">
             <div className="container  flex items-center gap-10 relative mx-auto">
                 <Link to="/" className="grow-[1] text-2xl font-[inter] font-bold">Exclusive</Link>
                 <nav className="flex items-center justify-end lg:justify-between grow-[1]">
