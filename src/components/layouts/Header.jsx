@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Search from "../utils/Search"
-import { Link, NavLink } from "react-router-dom"
 import Categories from "../utils/Categories"
+import { Link, NavLink } from "react-router-dom"
 
 function Header(){
     const [menu, setMenu] = useState(false)
@@ -13,7 +13,7 @@ function Header(){
     return(
         <>
         <header className="sticky top-0 z-10 py-5 border-b-[1px] border-solid border-[--border-clr] bg-white">
-            <div className="container  flex items-center gap-10 relative mx-auto">
+            <div className="container  flex items-center gap-5 relative mx-auto">
                 <Link to="/" className="grow-[1] text-2xl font-[inter] font-bold">Exclusive</Link>
                 <nav className="flex items-center justify-end lg:justify-between grow-[1]">
                     <ul className={`${menu ? "menu" : "" } font-[poppins] text-base font-normal`}>
@@ -29,7 +29,7 @@ function Header(){
                         <li>
                             <NavLink to="/signup" onClick={menuHidden} className={`relative lg:pb-1`}>Sign Up</NavLink>
                         </li>
-                        <li className="lg:hidden">
+                        <li className="lg:hidden text-[--secondaryThree-clr]">
                             <NavLink to="/login" onClick={menuHidden} className={`relative lg:pb-1`}>Login</NavLink>
                         </li>
                     </ul>
@@ -42,7 +42,7 @@ function Header(){
                             <i className="fa-regular fa-heart"></i>
                         </button>
                         <button onClick={()=>{setCategoriesOpen(!categoriesOpen)}} className="xl:hidden text-xl text-[--primaryTwo-clr]">
-                            <i class="fa-solid fa-icons"></i>
+                            <i className="fa-solid fa-icons"></i>
                         </button>
                         <button className="text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-cart-shopping"></i>
