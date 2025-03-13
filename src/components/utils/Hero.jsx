@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 function Hero(){
     return(
         <>
-        <section className="hero hidden lg:block pt-11 pb-16">
+        <section className="hero hidden lg:block pt-11 pb-14">
             <div className="container mx-auto grid xl:grid-cols-[17rem,auto] justify-center xl:justify-between items-center relative font-[poppins] xl:after:content-[''] xl:after:absolute xl:after:left-[320px] xl:after:top-[-44px] xl:after:h-[400px] xl:after:w-[1px] xl:after:bg-[--border-clr]">
                 <ul className="hidden xl:flex flex-col gap-4 xl:h-[22rem] text-base font-normal  xl:overflow-y-scroll text-black srcrollbar-v scrollbar-thumb scrollbar-track">
                     <li >

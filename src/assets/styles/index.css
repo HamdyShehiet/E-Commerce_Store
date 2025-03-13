@@ -12,7 +12,7 @@
     --secondaryFour-clr:#47b486;
     --textOne-clr:#fafafa;
     --textTwo-clr:#7D8184;
-    --hoverBtnOne-clr:#E07575;
+    --hoverBtnOne-clr:#cf5151;
     --hoverBtnTwo-clr:#A0BCE0;
     --border-clr:#00000066;
     --poppins:"Poppins", sans-serif;
@@ -24,6 +24,9 @@ body{
 body::-webkit-scrollbar,
 .srcrollbar-v::-webkit-scrollbar {
     width: .1em;
+}
+.srcrollbar-h::-webkit-scrollbar {
+    height: .07em;
 }
 .scrollbar-track::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
@@ -103,4 +106,10 @@ body::-webkit-scrollbar,
 .hero .container .slider ul li.active{
     border: 3px solid var(--primaryOne-clr);
     background-color: var(--secondaryThree-clr) ;
+}
+.container .hover-Card:hover .add-to-cart{
+    bottom: 0;
+}
+.container .hover-Card .add-to-cart{
+    transition: all 220ms ease;
 }

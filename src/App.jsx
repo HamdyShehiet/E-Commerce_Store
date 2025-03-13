@@ -12,6 +12,7 @@ import Header from './components/layouts/Header'
 import Footer from './components/layouts/Footer'
 import NotFound from './components/pages/NotFound'
 import WishList from './components/pages/Wishlist'
+import Products from './components/pages/Products'
 
 
 function App() {
@@ -22,14 +23,15 @@ function App() {
       <Header />
       <Routes>
         <Route path='*' element={<NotFound />}/>
+        <Route path='/signup' element={<SignUp />}/>
+        <Route path='/login' element={<LogIn />}/>
+        <Route path='/account' element={<Account />}/>
         <Route path='/' element={<Home />}/>
         <Route path='/contact' element={<Contact />}/>
         <Route path='/about' element={<About />}/>
-        <Route path='/signup' element={<SignUp />}/>
-        <Route path='/login' element={<LogIn />}/>
         <Route path='/cart' element={<Cart />}/>
-        <Route path='/account' element={<Account />}/>
         <Route path='/wishlist' element={<WishList />}/>
+        <Route path='/products' element={<Products />}/>
       </Routes>
       <Footer/>
     </>
