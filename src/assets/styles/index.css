@@ -26,7 +26,7 @@ body::-webkit-scrollbar,
     width: .1em;
 }
 .srcrollbar-h::-webkit-scrollbar {
-    height: .07em;
+    height: .05em;
 }
 .scrollbar-track::-webkit-scrollbar-track{
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);

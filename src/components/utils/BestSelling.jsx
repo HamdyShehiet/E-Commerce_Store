@@ -3,13 +3,13 @@ import { Link } from "react-router-dom"
 function BestSelling(){
     return(
         <section className="py-12">
-            <div className="container mx-auto flex flex-col items-start gap-6">
+            <div className="container mx-auto flex flex-col items-start gap-12">
                 <span className="relative pl-7 font-[poppins] font-semibold text-base text-[--secondaryThree-clr] before:absolute before:content-[''] before:left-0 before:top-[50%] before:translate-y-[-50%] before:w-5 before:h-10 before:rounded before:bg-[--secondaryThree-clr]">This Month</span>
-                <div className="flex items-center justify-between w-full my-4">
-                    <span className="font-[inter] font-semibold text-4xl">Best Selling</span>
-                <Link to="/products"  className="self-center mt-3 py-4 px-12  rounded-[4px] text-base font-medium  bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr] cursor-pointer">View All Products</Link>
+                <div className="flex items-center justify-between w-full">
+                    <span className="font-[inter] font-semibold text-[clamp(1.5rem,_5vw,_2.25rem)]">Best Selling Products</span>
+                    <Link to="/products"  className="hidden md:block py-3 px-8 rounded-[4px] text-base font-medium  bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr] cursor-pointer">View All</Link>
                 </div>
-                <div className="row flex items-start w-full gap-8 py-6 px-1 overflow-x-scroll whitespace-nowrap srcrollbar-h scrollbar-thumb scrollbar-track font-[poppins]">
+                <div className="row flex items-start w-full gap-8 pb-6 px-1 overflow-x-scroll whitespace-nowrap srcrollbar-h scrollbar-thumb scrollbar-track font-[poppins]">
                     <div className="col min-w-[18.125rem]  flex flex-col gap-3">
                         <div className="hover-Card relative flex items-center justify-center w-full h-[18.125rem] rounded-[0.25rem] bg-[--secondaryTwo-clr]  overflow-hidden">
                         <div className="flex flex-col gap-[0.625rem] absolute z-[2] top-3 right-3">
@@ -186,6 +186,7 @@ function BestSelling(){
                         </div>
                     </div>
                 </div>
+                <Link to="/products"  className="md:hidden self-center mt-3 py-3 px-8  rounded-[4px] text-base font-medium  bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr] cursor-pointer">View All</Link>
             </div>
         </section>
     )
