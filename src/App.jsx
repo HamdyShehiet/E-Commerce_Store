@@ -13,7 +13,7 @@ import Footer from './components/layouts/Footer'
 import NotFound from './components/pages/NotFound'
 import WishList from './components/pages/Wishlist'
 import Products from './components/pages/Products'
-import CategoriesProducts from './components/pages/CategoriesProducts'
+import CategoriesProducts from './components/pages/CategoryProducts'
 
 
 function App() {

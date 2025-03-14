@@ -1,6 +1,6 @@
 
 
-function CategoriesProducts() {
+function CategoryProducts() {
 
     return (
         <>
@@ -9,4 +9,4 @@ function CategoriesProducts() {
     )
 }
 
-export default CategoriesProducts
+export default CategoryProducts
