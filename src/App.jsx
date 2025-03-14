@@ -13,6 +13,7 @@ import Footer from './components/layouts/Footer'
 import NotFound from './components/pages/NotFound'
 import WishList from './components/pages/Wishlist'
 import Products from './components/pages/Products'
+import CategoriesProducts from './components/pages/CategoriesProducts'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='*' element={<NotFound />}/>
+        <Route path='/category/:categoryName' element={<CategoriesProducts />}/>
         <Route path='/signup' element={<SignUp />}/>
         <Route path='/login' element={<LogIn />}/>
         <Route path='/account' element={<Account />}/>
