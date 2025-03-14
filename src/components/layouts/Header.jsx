@@ -38,13 +38,13 @@ function Header(){
                         <button onClick={()=>{setSearchBox(!searchBox)}} className="lg:hidden text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
-                        <button className="text-xl text-[--primaryTwo-clr]">
+                        <button title="WishList" className="text-xl text-[--primaryTwo-clr]">
                             <i className="fa-regular fa-heart"></i>
                         </button>
-                        <button onClick={()=>{setCategoriesOpen(!categoriesOpen)}} className="xl:hidden text-xl text-[--primaryTwo-clr]">
+                        <button title="Categories" onClick={()=>{setCategoriesOpen(!categoriesOpen)}} className="xl:hidden text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-icons"></i>
                         </button>
-                        <button className="text-xl text-[--primaryTwo-clr]">
+                        <button title="Cart Shopping" className="text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-cart-shopping"></i>
                         </button>
                         <button onClick={()=>{setMenu(!menu)}} className={`${menu ? "fa-xmark" : "fa-bars-staggered" } lg:hidden text-xl text-[--primaryTwo-clr]`}>
