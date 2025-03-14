@@ -13,6 +13,7 @@ import Footer from './components/layouts/Footer'
 import NotFound from './components/pages/NotFound'
 import WishList from './components/pages/Wishlist'
 import Products from './components/pages/Products'
+import ProductDetails from './components/pages/ProductDetails'
 import CategoriesProducts from './components/pages/CategoryProducts'
 
 
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path='*' element={<NotFound />}/>
         <Route path='/category/:categoryName' element={<CategoriesProducts />}/>
+        <Route path='/category/:categoryName/product/:id' element={<ProductDetails />}/>
         <Route path='/signup' element={<SignUp />}/>
         <Route path='/login' element={<LogIn />}/>
         <Route path='/account' element={<Account />}/>

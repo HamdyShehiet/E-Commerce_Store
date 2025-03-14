@@ -35,7 +35,7 @@ function Header(){
                     </ul>
                     <div className="flex items-center gap-4 font-[poppins]">
                         <Search searchBox={searchBox}/>
-                        <button onClick={()=>{setSearchBox(!searchBox)}} className="lg:hidden text-xl text-[--primaryTwo-clr]">
+                        <button title="Search" onClick={()=>{setSearchBox(!searchBox)}} className="lg:hidden text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
                         <button title="WishList" className="text-xl text-[--primaryTwo-clr]">
@@ -52,7 +52,7 @@ function Header(){
                         </button>
                     </div>
                 </nav>
-                {categoriesOpen && <Categories/>}
+                {categoriesOpen && <Categories setCategoriesOpen={setCategoriesOpen}/>}
             </div>
         </header>
         </>
