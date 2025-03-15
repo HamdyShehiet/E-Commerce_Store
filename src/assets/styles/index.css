@@ -23,7 +23,7 @@ body{
     background-color: var(--bg-clr);
 }
 body::-webkit-scrollbar,
-.srcrollbar-v::-webkit-scrollbar {
+.srcrollbar-v::-webkit-scrollbar{
     width: .1em;
 }
 .srcrollbar-h::-webkit-scrollbar {
