@@ -29,7 +29,7 @@ function SignUp(){
                         <input onChange={(e)=>{setRegisterFormInputs({...registerFormInputs,password:e.target.value})}} type="password" name="password" id="password"  placeholder="Password" className="w-full pb-4 font-medium outline-none border-[--border-clr] border-b-[1px] bg-transparent"/>
                         <input onClick={submit} type="submit" value="Create Account" className="py-4 rounded-[4px] text-base font-medium  bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr] cursor-pointer"/>
                         <a href="/" className="flex justify-center gap-4 border-[--border-clr] border-[1px] py-4 rounded-[4px] text-base font-normal">
-                            <img src="/public/icons/google.png" width="25" alt="Google Icon" />
+                            <img src="/icons/google.png" width="25" alt="Google Icon" />
                             <span href="/">Sign up with Google</span>
                         </a>
                     </form>

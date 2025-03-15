@@ -6,8 +6,20 @@ function ProductDetails(){
     const {id} = useParams()
     const [product, setProduct] = useState({})
     const [loading, setLoading] = useState(true)
-    console.log(product);
-    
+    const [error, setError] = useState("")
+
+    const {
+        title,
+        description,
+        price,
+        rating,
+        availabilityStatus,
+        images = [],
+        thumbnail,
+        colours,
+        sizes,
+    } = product || {}
+
         async function getProduct(){
             try{
                 const response = await fetch(`https://dummyjson.com/products/${id}`)
@@ -17,6 +29,7 @@ function ProductDetails(){
                 const data = await response.json();
                 setProduct(data)
             }catch(error){
+                setError("Error")
                 console.error("Error",error)
             }finally{
                 setLoading(false)
@@ -27,23 +40,26 @@ function ProductDetails(){
         },[id])
     return (
         <>
-        {
+        {  loading ? <p>Loading....</p> : error ? <p>Not Found</p> :
         <section className="py-20">
-            <div className="container grid items-strech justify-center xl:items-start xl:grid-cols-[60%,_28rem] xl:justify-between gap-y-10 mx-auto ">
-                <div className="flex items-stretch justify-center xl:justify-start flex-col-reverse md:flex-row gap-9">
-                    <div className="product-slides flex md:flex-col justify-center flex-wrap gap-4 ">
-                        <div className="w-[min(9rem,100%)] inline-flex justify-center items-center p-4 rounded bg-[--secondaryTwo-clr]"><img src="/images/product5(1).png" alt="Image" /></div>
-                        <div className="w-[min(9rem,100%)] inline-flex justify-center items-center p-4 rounded bg-[--secondaryTwo-clr]"><img src="/images/product5(2).png" alt="Image" /></div>
-                        <div className="w-[min(9rem,100%)] inline-flex justify-center items-center p-4 rounded bg-[--secondaryTwo-clr]"><img src="/images/product5(3).png" alt="Image" /></div>
-                        <div className="w-[min(9rem,100%)] inline-flex justify-center items-center p-4 rounded bg-[--secondaryTwo-clr]"><img src="/images/product5(4).png" alt="Image" /></div>
+            <div className="container grid items-strech justify-center  xl:grid-cols-[60%,_28rem] xl:justify-between gap-y-10 mx-auto ">
+                <div className="flex  md:items-stretch justify-center xl:justify-start flex-col-reverse md:flex-row gap-9">
+                    <div className="product-slides flex justify-center md:flex-col md:justify-start flex-wrap gap-4 ">
+                            {images && images.length > 0 && images?.map((image,index)=>{
+                                return (
+                                    <div key={index} className="max-w-[9rem] w-full inline-flex justify-center items-center p-4 rounded bg-[--secondaryTwo-clr]">
+                                    <img  src={image} alt={title} />
+                                    </div>
+                                )
+                            })}
                     </div>
-                    <div className=" inline-flex items-center justify-center p-9 rounded bg-[--secondaryTwo-clr]">
-                        <img src="/images/product5.png" alt="" />
-                    </div>
+                    {thumbnail && <div className="xl:max-w-[30rem] w-full inline-flex items-center justify-center p-9 rounded bg-[--secondaryTwo-clr]">
+                        <img src={thumbnail} alt={title} />
+                    </div>}
                 </div>
                 <div className="flex flex-col gap-6 xl:gap-3">
                     <div className="flex flex-col gap-2 pb-4 border-b-[1px] border-[--textTwo-clr] border-solid">
-                        <span className="font-[inter] text-2xl font-semibold text-black">Havic HV G-92 Gamepad</span>
+                        <span className="font-[inter] text-2xl font-semibold text-black">{title ?? "Not Found"}</span>
                         <div className="flex items-center gap-3 font-[poppins]">
                             <ul className="flex items-center gap-2 text-sm">
                             <li><i className="fa-solid fa-star text-[#e6e6e6] hover:text-[#ff9c1a] cursor-pointer"></i></li>
@@ -52,21 +68,21 @@ function ProductDetails(){
                             <li><i className="fa-solid fa-star text-[#e6e6e6] hover:text-[#ff9c1a] cursor-pointer"></i></li>
                             <li><i className="fa-solid fa-star text-[#e6e6e6] hover:text-[#ff9c1a] cursor-pointer"></i></li>
                             </ul>
-                            <span className="text-[--textTwo-clr]">(150 Reviews)</span>
-                            <span className="pl-3 text-sm font-normal text-[--secondaryFive-clr] relative before:content-[''] before:absolute before:left-0 before:top-0 before:w-[1px] before:h-[20px] before:bg-[--textTwo-clr]">in Stock</span>
+                            <span className="text-[--textTwo-clr]">({rating || "Not Found"} Rateing)</span>
+                            <span className="pl-3 text-sm font-normal text-[--secondaryFive-clr] relative before:content-[''] before:absolute before:left-0 before:top-0 before:w-[1px] before:h-[20px] before:bg-[--textTwo-clr]">{availabilityStatus}</span>
                         </div>
-                        <span className="font-[inter] text-2xl font-normal text-black">$192.00</span>
-                        <p className="max-w-[42rem] w-full font-[poppins] text-base font-normal text-black">PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.</p>
+                        <span className="font-[inter] text-2xl font-normal text-black">${price || "Not Found"}</span>
+                        <p className="max-w-[42rem] w-full font-[poppins] text-base font-normal text-black">{description || "Not Found"} </p>
                     </div>
                     <div className="flex flex-col gap-5 pt-4">
-                        <div className="flex items-center gap-4">
+                        {colours && <div className="flex items-center gap-4">
                             <span className="font-[inter] text-xl font-normal text-black">Colours :</span>
                             <ul className="flex items-center gap-3">
                                 <li className="w-[20px] h-[20px] outline border-[#ffffff] border-solid border-[3px] rounded-[50%] bg-[#A0BCE0] cursor-pointer"></li>
                                 <li className="w-[20px] h-[20px]  rounded-[50%] bg-[#9c1616]  cursor-pointer"></li>
                             </ul>
-                        </div>
-                        <div className="flex items-center gap-4">
+                        </div>}
+                        { sizes && <div className="flex items-center gap-4">
                             <span className="font-[inter] text-xl font-normal text-black">Size :</span>
                             <ul className="flex flex-wrap items-center gap-3 font-[poppins]">
                                 <li className="text-sm font-medium text-black hover:text-white hover:bg-[--secondaryThree-clr] border-[--textTwo-clr] border-[1px] border-solid rounded py-2 px-4 cursor-pointer">XS</li>
@@ -75,7 +91,7 @@ function ProductDetails(){
                                 <li className="text-sm font-medium text-black hover:text-white hover:bg-[--secondaryThree-clr] border-[--textTwo-clr] border-[1px] border-solid rounded py-2 px-4 cursor-pointer">L</li>
                                 <li className="text-sm font-medium text-black hover:text-white hover:bg-[--secondaryThree-clr] border-[--textTwo-clr] border-[1px] border-solid rounded py-2 px-4 cursor-pointer">Xl</li>
                             </ul>
-                        </div>
+                        </div>}
                         <div className="flex flex-wrap items-center gap-7">
                             <ul className="flex items-center border-[--textTwo-clr] border-[1px] rounded font-[poppins]">
                                 <li className="py-1 px-3 text-xl text-black hover:bg-[--secondaryThree-clr] hover:text-white cursor-pointer">-</li>

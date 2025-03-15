@@ -6,17 +6,18 @@ function Products(){
     const [allProducts, setAllProducts] = useState({})
     const [loading, setLoading] = useState(true)
     const { products = [] } = allProducts;
-    console.log(products[4]);
-    
+    const [error, setError] = useState("")
+
         async function getProducts(){
             try{
-                const response = await fetch(`https://dummyjson.com/products/`)
+                const response = await fetch(`https://dummyjson.com/products`)
                 if(response.status !== 200){
                     throw new Error("Response Error");
                 }
                 const data = await response.json();
                 setAllProducts(data)
             }catch(error){
+                setError("Error")
                 console.error("Error",error)
             }finally{
                 setLoading(false)
@@ -29,7 +30,7 @@ function Products(){
         <>
         <section className="py-12">
             <div className="container mx-auto grid grid-cols-[repeat(auto-fit,min(18.125rem,_100%))] justify-center  gap-8 font-[poppins]">
-                    {   loading ? <p>Loadin....</p> :
+                    {   loading ? <p>Loadin....</p> : error ? <p>Not Found</p> :
                         products?.map((product)=>{
                             const {
                                 id,
@@ -48,9 +49,9 @@ function Products(){
                                     <button className="w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]"><i className="fa-solid fa-eye"></i></button>
                                 </div>
                                 <button className="add-to-cart absolute z-[10] bottom-[-3rem] right-0 w-full py-3 text-base font-medium bg-black text-white">Add To Cart</button>
-                                <Link to={`/`}><img src={thumbnail}  alt={`${title} Image`} /></Link>
+                                <Link to={`/product/${id}`}><img src={thumbnail}  alt={`${title} Image`} /></Link>
                                 </div>
-                                <Link to={`/`} className="text-base font-medium text-black">{title}</Link>
+                                <Link to={`/product/${id}`} className="text-base font-medium text-black">{title}</Link>
                                 <div className="flex items-center gap-4 text-base font-medium">
                                     <span className="text-[--secondaryThree-clr]">${price}</span>
                                     <del className="text-[--textTwo-clr]">{(price + (price * (discountPercentage/100))).toFixed(2)}</del>

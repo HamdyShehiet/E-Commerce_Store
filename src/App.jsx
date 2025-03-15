@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path='*' element={<NotFound />}/>
         <Route path='/category/:categoryName' element={<CategoriesProducts />}/>
-        <Route path='/category/:categoryName/product/:id' element={<ProductDetails />}/>
+        <Route path='/product/:id' element={<ProductDetails />}/>
         <Route path='/signup' element={<SignUp />}/>
         <Route path='/login' element={<LogIn />}/>
         <Route path='/account' element={<Account />}/>

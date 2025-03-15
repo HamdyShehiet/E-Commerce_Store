@@ -4,7 +4,7 @@ function Footer(){
     return(
         <footer className="bg-black">
             <section className="py-14 border-b-[1px] border-[--primaryTwo-clr]">
-                <div className="container grid justify-start md:justify-center gap-y-5 gap-x-4 grid-cols-[repeat(auto-fit,_min(300px,_100%))] mx-auto text-[--textOne-clr]">
+                <div className="container grid justify-start md:justify-center gap-y-5 gap-x-14 grid-cols-[repeat(auto-fit,_min(17rem,_100%))] mx-auto text-[--textOne-clr]">
                     <div className="flex flex-col items-start gap-6">
                         <Link to="/" className="font-[inter] text-2xl font-bold">Exclusive</Link>
                         <span className="font-[poppins] text-xl font-medium">Subscribe</span>
