@@ -41,8 +41,8 @@ function ProductDetails(){
                         <img src="/images/product5.png" alt="" />
                     </div>
                 </div>
-                <div className="flex flex-col gap-3 ">
-                    <div className="flex flex-col gap-3 pb-4 border-b-[1px] border-[--textTwo-clr] border-solid">
+                <div className="flex flex-col gap-6 xl:gap-3">
+                    <div className="flex flex-col gap-2 pb-4 border-b-[1px] border-[--textTwo-clr] border-solid">
                         <span className="font-[inter] text-2xl font-semibold text-black">Havic HV G-92 Gamepad</span>
                         <div className="flex items-center gap-3 font-[poppins]">
                             <ul className="flex items-center gap-2 text-sm">
@@ -59,14 +59,14 @@ function ProductDetails(){
                         <p className="max-w-[42rem] w-full font-[poppins] text-base font-normal text-black">PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.</p>
                     </div>
                     <div className="flex flex-col gap-5 pt-4">
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-4">
                             <span className="font-[inter] text-xl font-normal text-black">Colours :</span>
                             <ul className="flex items-center gap-3">
                                 <li className="w-[20px] h-[20px] outline border-[#ffffff] border-solid border-[3px] rounded-[50%] bg-[#A0BCE0] cursor-pointer"></li>
                                 <li className="w-[20px] h-[20px]  rounded-[50%] bg-[#9c1616]  cursor-pointer"></li>
                             </ul>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-4">
                             <span className="font-[inter] text-xl font-normal text-black">Size :</span>
                             <ul className="flex flex-wrap items-center gap-3 font-[poppins]">
                                 <li className="text-sm font-medium text-black hover:text-white hover:bg-[--secondaryThree-clr] border-[--textTwo-clr] border-[1px] border-solid rounded py-2 px-4 cursor-pointer">XS</li>
@@ -76,7 +76,7 @@ function ProductDetails(){
                                 <li className="text-sm font-medium text-black hover:text-white hover:bg-[--secondaryThree-clr] border-[--textTwo-clr] border-[1px] border-solid rounded py-2 px-4 cursor-pointer">Xl</li>
                             </ul>
                         </div>
-                        <div className="flex flex-wrap items-center gap-5">
+                        <div className="flex flex-wrap items-center gap-7">
                             <ul className="flex items-center border-[--textTwo-clr] border-[1px] rounded font-[poppins]">
                                 <li className="py-1 px-3 text-xl text-black hover:bg-[--secondaryThree-clr] hover:text-white cursor-pointer">-</li>
                                 <li className="py-1 px-8 text-xl text-black border-[--textTwo-clr] border-x-[1px]">2</li>
