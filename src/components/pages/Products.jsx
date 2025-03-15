@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function Products(){
     const [allProducts, setAllProducts] = useState({})
     const [loading, setLoading] = useState(true)
-    const { products = [] } = allProducts;
     const [error, setError] = useState("")
+    const { products = [] } = allProducts;
 
         async function getProducts(){
             try{
