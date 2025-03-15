@@ -68,7 +68,7 @@ function ProductDetails(){
                             <li><i className="fa-solid fa-star text-[#e6e6e6] hover:text-[#ff9c1a] cursor-pointer"></i></li>
                             <li><i className="fa-solid fa-star text-[#e6e6e6] hover:text-[#ff9c1a] cursor-pointer"></i></li>
                             </ul>
-                            <span className="text-[--textTwo-clr]">({rating || "Not Found"} Rateing)</span>
+                            <span className="text-[--textTwo-clr]">({rating || "Not Found"} Rating)</span>
                             <span className="pl-3 text-sm font-normal text-[--secondaryFive-clr] relative before:content-[''] before:absolute before:left-0 before:top-0 before:w-[1px] before:h-[20px] before:bg-[--textTwo-clr]">{availabilityStatus}</span>
                         </div>
                         <span className="font-[inter] text-2xl font-normal text-black">${price || "Not Found"}</span>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 
 function FlashSales(){
@@ -7,7 +7,7 @@ function FlashSales(){
     const [error, setError] = useState("")
     const {products = [] } = someProducts
     const displaySomeProducts = products.slice(0 , 8);
-    
+
         async function getProducts(){
             try{
                 const response = await fetch(`https://dummyjson.com/products`)
@@ -58,9 +58,9 @@ function FlashSales(){
                             <button className="w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]"><i className="fa-solid fa-eye"></i></button>
                         </div>
                         <button className="add-to-cart absolute z-[10] bottom-[-3rem] right-0 w-full py-3 text-base font-medium bg-black text-white">Add To Cart</button>
-                        <Link to="/"><img src={thumbnail}  alt="Product Image" /></Link>
+                        <Link to={`/product/${id}`}><img src={thumbnail}  alt="Product Image" /></Link>
                         </div>
-                        <Link to="/" className="text-base font-medium text-black">{title}</Link>
+                        <Link to={`/product/${id}`} className="text-base font-medium text-black">{title}</Link>
                         <div className="flex items-center gap-4 text-base font-medium">
                             <span className="text-[--secondaryThree-clr]">${price}</span>
                             {discountPercentage && <del className="text-[--textTwo-clr]">{(price + (price * (discountPercentage/100))).toFixed(2)}</del>}

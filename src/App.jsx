@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './assets/styles/App.css'
 import Cart from './components/pages/Cart'
 import Home from './components/pages/Home'
@@ -15,12 +16,13 @@ import WishList from './components/pages/Wishlist'
 import Products from './components/pages/Products'
 import ProductDetails from './components/pages/ProductDetails'
 import CategoriesProducts from './components/pages/CategoryProducts'
-
+import { SharedData } from './context/SharedData'
 
 function App() {
-
+  
   return (
     <>
+    <SharedData.Provider value={{}}>
       <Banar/>
       <Header />
       <Routes>
@@ -38,6 +40,7 @@ function App() {
         <Route path='/products' element={<Products />}/>
       </Routes>
       <Footer/>
+      </SharedData.Provider>
     </>
   )
 }
