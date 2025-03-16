@@ -44,9 +44,9 @@ function Header(){
                         <button title="Categories" onClick={()=>{setCategoriesOpen(!categoriesOpen)}} className="xl:hidden text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-icons"></i>
                         </button>
-                        <button title="Cart Shopping" className="text-xl text-[--primaryTwo-clr]">
+                        <Link to="/cart" title="Cart Shopping" className="text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        </Link>
                         <button onClick={()=>{setMenu(!menu)}} className={`${menu ? "fa-xmark" : "fa-bars-staggered" } lg:hidden text-xl text-[--primaryTwo-clr]`}>
                             <i className="fa-solid"></i>
                         </button>
