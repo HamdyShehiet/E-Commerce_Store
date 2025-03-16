@@ -22,12 +22,13 @@ function ProductsProvider({children}){
             console.error("Error",error)
         }finally{
             setLoading(false)
+            window.scrollTo(0, 0);
         }
     }
     useEffect(()=>{
         getProducts()
     },[])
-
+    
     return(
         <ProductsContext.Provider value={{displaySomeProducts, loading, error}}>
             {children}

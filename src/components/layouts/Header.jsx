@@ -38,9 +38,9 @@ function Header(){
                         <button title="Search" onClick={()=>{setSearchBox(!searchBox)}} className="lg:hidden text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
-                        <button title="WishList" className="text-xl text-[--primaryTwo-clr]">
+                        <Link to="/wishlist" title="WishList" className="text-xl text-[--primaryTwo-clr]">
                             <i className="fa-regular fa-heart"></i>
-                        </button>
+                        </Link>
                         <button title="Categories" onClick={()=>{setCategoriesOpen(!categoriesOpen)}} className="xl:hidden text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-icons"></i>
                         </button>
