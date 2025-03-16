@@ -40,7 +40,7 @@ function FlashSales(){
                         <Link to={`/product/${id}`} className="text-base font-medium text-black">{title}</Link>
                         <div className="flex items-center gap-4 text-base font-medium">
                             <span className="text-[--secondaryThree-clr]">${price}</span>
-                            {discountPercentage && <del className="text-[--textTwo-clr]">{(price + (price * (discountPercentage/100))).toFixed(2)}</del>}
+                            {discountPercentage && <del className="text-[--textTwo-clr]">${(price + (price * (discountPercentage/100))).toFixed(2)}</del>}
                         </div>
                         <div className="flex items-center gap-4 font-medium text-base">
                             <ul className="flex items-center gap-2">

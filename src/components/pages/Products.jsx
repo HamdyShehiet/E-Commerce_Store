@@ -30,7 +30,7 @@ function Products(){
     return(
         <>
         <section className="py-12">
-            <div className="container mx-auto grid grid-cols-[repeat(auto-fit,min(18.125rem,_100%))] justify-center  gap-8 font-[poppins]">
+            <div className="container mx-auto grid grid-cols-[repeat(auto-fit,min(18.125rem,_100%))] justify-center gap-8 font-[poppins]">
                     {   loading ? <p>Loadin....</p> : error ? <p>Not Found</p> :
                         products?.map((product)=>{
                             const {
@@ -55,7 +55,7 @@ function Products(){
                                 <Link to={`/product/${id}`} className="text-base font-medium text-black">{title}</Link>
                                 <div className="flex items-center gap-4 text-base font-medium">
                                     <span className="text-[--secondaryThree-clr]">${price}</span>
-                                    <del className="text-[--textTwo-clr]">{(price + (price * (discountPercentage/100))).toFixed(2)}</del>
+                                    <del className="text-[--textTwo-clr]">${(price + (price * (discountPercentage/100))).toFixed(2)}</del>
                                 </div>
                                 <div className="flex items-center gap-4 font-medium text-base">
                                     <ul className="flex items-center gap-2">

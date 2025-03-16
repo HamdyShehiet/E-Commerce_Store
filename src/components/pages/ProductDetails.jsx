@@ -8,8 +8,9 @@ function ProductDetails() {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [count, setCount] = useState(0);
 
-  const { title, description, price, rating, availabilityStatus, images = [], thumbnail, colours, sizes } = product || {};
+  const { title, description, price, rating, availabilityStatus, stock, images = [], thumbnail, colours, sizes } = product || {};
 
   async function getProduct() {
     try {
@@ -24,6 +25,7 @@ function ProductDetails() {
       console.error("Error", error);
     } finally {
       setLoading(false);
+      setCount(0)
       window.scrollTo(0, 0);
     }
   }
@@ -120,9 +122,26 @@ function ProductDetails() {
                 )}
                 <div className="flex flex-wrap items-center gap-7">
                   <ul className="flex items-center border-[--textTwo-clr] border-[1px] rounded font-[poppins]">
-                    <li className="py-1 px-3 text-xl text-black hover:bg-[--secondaryThree-clr] hover:text-white cursor-pointer">-</li>
-                    <li className="py-1 px-8 text-xl text-black border-[--textTwo-clr] border-x-[1px]">2</li>
-                    <li className="py-1 px-3 text-xl text-black hover:bg-[--secondaryThree-clr] hover:text-white cursor-pointer">+</li>
+                    <li
+                      onClick={() => {
+                        if (count > 0) {
+                          return setCount(count - 1);
+                        }
+                      }}
+                      className="py-1 px-3 text-xl text-black hover:bg-[--secondaryThree-clr] hover:text-white cursor-pointer"
+                    >
+                      -
+                    </li>
+                    <li className="py-1 px-8 text-xl text-black border-[--textTwo-clr] border-x-[1px]">{count}</li>
+                    <li
+                      onClick={() => {
+                        if(count !== stock){
+                        setCount(count + 1);
+                      }}}
+                      className="py-1 px-3 text-xl text-black hover:bg-[--secondaryThree-clr] hover:text-white cursor-pointer"
+                    >
+                      +
+                    </li>
                   </ul>
                   <button className="self-center py-2 px-12 rounded-[4px] font-[poppins] text-base font-medium  bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr]">
                     Buy Now
