@@ -1,32 +1,9 @@
-import {  useEffect, useState } from "react";
+import {  useContext } from "react";
 import { Link } from "react-router-dom"
+import { ProductsContext } from "../../context/Products";
 
 function FlashSales(){
-    const [someProducts, setSomeProducts] = useState({})
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState("")
-    const {products = [] } = someProducts
-    const displaySomeProducts = products.slice(0 , 8);
-
-        async function getProducts(){
-            try{
-                const response = await fetch(`https://dummyjson.com/products`)
-                if(response.status !== 200){
-                    throw new Error("Response Error");
-                }
-                const data = await response.json();
-                setSomeProducts(data)
-            }catch(error){
-                setError("Error")
-                console.error("Error",error)
-            }finally{
-                setLoading(false)
-            }
-        }
-        useEffect(()=>{
-            getProducts()
-        },[])
-
+    const {displaySomeProducts, loading, error} = useContext(ProductsContext)
     return(
         <section className="py-12">
             <div className="container mx-auto flex flex-col items-start gap-12">

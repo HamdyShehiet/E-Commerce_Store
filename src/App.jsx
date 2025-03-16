@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './assets/styles/App.css'
 import Cart from './components/pages/Cart'
 import Home from './components/pages/Home'
@@ -16,15 +15,16 @@ import WishList from './components/pages/Wishlist'
 import Products from './components/pages/Products'
 import ProductDetails from './components/pages/ProductDetails'
 import CategoriesProducts from './components/pages/CategoryProducts'
-import { SharedData } from './context/SharedData'
+import CategoriesProvider from './components/utils/CategoriestProvider'
 
 function App() {
   
   return (
     <>
-    <SharedData.Provider value={{}}>
       <Banar/>
-      <Header />
+      <CategoriesProvider>
+        <Header />
+      </CategoriesProvider>
       <Routes>
         <Route path='*' element={<NotFound />}/>
         <Route path='/category/:categoryName' element={<CategoriesProducts />}/>
@@ -40,7 +40,6 @@ function App() {
         <Route path='/products' element={<Products />}/>
       </Routes>
       <Footer/>
-      </SharedData.Provider>
     </>
   )
 }
