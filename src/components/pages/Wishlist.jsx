@@ -23,7 +23,7 @@ function WishList() {
                 <button className="absolute z-[2] top-3 right-3 w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]">
                   <i className="fa-solid fa-trash"></i>
                 </button>
-                <button className="flex items-center justify-center gap-2 absolute z-[10] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
+                <button className="flex items-center justify-center gap-2 absolute z-[6] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
                   <i className="fa-solid fa-cart-shopping"></i>
                   <span>Add To Cart</span>
                 </button>
@@ -43,7 +43,7 @@ function WishList() {
                 <button className="absolute z-[2] top-3 right-3 w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]">
                   <i className="fa-solid fa-trash"></i>
                 </button>
-                <button className="flex items-center justify-center gap-2 absolute z-[10] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
+                <button className="flex items-center justify-center gap-2 absolute z-[6] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
                   <i className="fa-solid fa-cart-shopping"></i>
                   <span>Add To Cart</span>
                 </button>
@@ -63,7 +63,7 @@ function WishList() {
                 <button className="absolute z-[2] top-3 right-3 w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]">
                   <i className="fa-solid fa-trash"></i>
                 </button>
-                <button className="flex items-center justify-center gap-2 absolute z-[10] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
+                <button className="flex items-center justify-center gap-2 absolute z-[6] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
                   <i className="fa-solid fa-cart-shopping"></i>
                   <span>Add To Cart</span>
                 </button>
@@ -83,7 +83,7 @@ function WishList() {
                 <button className="absolute z-[2] top-3 right-3 w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]">
                   <i className="fa-solid fa-trash"></i>
                 </button>
-                <button className="flex items-center justify-center gap-2 absolute z-[10] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
+                <button className="flex items-center justify-center gap-2 absolute z-[6] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
                   <i className="fa-solid fa-cart-shopping"></i>
                   <span>Add To Cart</span>
                 </button>
@@ -123,7 +123,7 @@ function WishList() {
                         <button className="absolute z-[2] top-3 right-3 w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]">
                           <i className="fa-solid fa-eye"></i>
                         </button>
-                        <button onClick={()=>addToCart(product)} className="flex items-center justify-center gap-2 absolute z-[10] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
+                        <button onClick={()=>addToCart(product)} className="flex items-center justify-center gap-2 absolute z-[6] bottom-[0] right-0 w-full py-3 text-base font-medium bg-black text-white">
                           <i className="fa-solid fa-cart-shopping"></i>
                           <span>Add To Cart</span>
                         </button>{" "}
