@@ -17,6 +17,7 @@ import ProductDetails from "./components/pages/ProductDetails";
 import CategoriesProducts from "./components/pages/CategoryProducts";
 import CategoriesProvider from "./components/utils/CategoriestProvider";
 import ProductsProvider from "./components/utils/ProductsProvider";
+import CheckOut from "./components/pages/CheckOut";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<CheckOut />} />
         <Route
           path="/wishlist"
           element={
