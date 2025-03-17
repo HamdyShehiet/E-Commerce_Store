@@ -1,32 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext } from "react"
 import { Link } from "react-router-dom";
+import { ProductsContext } from "../../context/Products";
 
 
 function Products(){
-    const [allProducts, setAllProducts] = useState({})
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState("")
+    const {allProducts, loading, error , addToCart} = useContext(ProductsContext)
     const { products = [] } = allProducts;
-
-        async function getProducts(){
-            try{
-                const response = await fetch(`https://dummyjson.com/products`)
-                if(response.status !== 200){
-                    throw new Error("Response Error");
-                }
-                const data = await response.json();
-                setAllProducts(data)
-            }catch(error){
-                setError("Error")
-                console.error("Error",error)
-            }finally{
-                setLoading(false)
-                window.scrollTo(0, 0);
-            }
-        }
-        useEffect(()=>{
-            getProducts()
-        },[])
+    
     return(
         <>
         <section className="py-12">
@@ -49,7 +29,7 @@ function Products(){
                                     <button className="w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]"><i className="fa-regular fa-heart"></i></button>
                                     <button className="w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]"><i className="fa-solid fa-eye"></i></button>
                                 </div>
-                                <button className="add-to-cart absolute z-[10] bottom-[-3rem] right-0 w-full py-3 text-base font-medium bg-black text-white">Add To Cart</button>
+                                <button  onClick={()=>addToCart(product)} className="add-to-cart absolute z-[10] bottom-[-3rem] right-0 w-full py-3 text-base font-medium bg-black text-white">Add To Cart</button>
                                 <Link to={`/product/${id}`}><img src={thumbnail}  alt={`${title} Image`} /></Link>
                                 </div>
                                 <Link to={`/product/${id}`} className="text-base font-medium text-black">{title}</Link>

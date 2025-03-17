@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RelatedItem from "../utils/RelatedItem";
-import ProductsProvider from "../utils/ProductsProvider";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -178,9 +177,7 @@ function ProductDetails() {
           </div>
         </section>
       )}
-      <ProductsProvider>
         <RelatedItem />
-      </ProductsProvider>
     </>
   );
 }

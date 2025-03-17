@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
+import { ProductsContext } from "../../context/Products";
 
 
 function CategoryProducts() {
     const {categoryName} = useParams()
+    const {addToCart} = useContext(ProductsContext)
     const [category, setCategory] = useState({})
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
@@ -48,7 +50,7 @@ function CategoryProducts() {
                                     <button className="w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]"><i className="fa-regular fa-heart"></i></button>
                                     <button className="w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]"><i className="fa-solid fa-eye"></i></button>
                                 </div>
-                                <button className="add-to-cart absolute z-[10] bottom-[-3rem] right-0 w-full py-3 text-base font-medium bg-black text-white">Add To Cart</button>
+                                <button onClick={()=>addToCart(product)} className="add-to-cart absolute z-[10] bottom-[-3rem] right-0 w-full py-3 text-base font-medium bg-black text-white">Add To Cart</button>
                                 <Link to={`/product/${id}`}><img src={thumbnail}  alt={`${title} Image`} /></Link>
                                 </div>
                                 <Link to={`/product/${id}`} className="text-base font-medium text-black">{title}</Link>

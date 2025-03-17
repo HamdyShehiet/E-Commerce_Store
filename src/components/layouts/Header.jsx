@@ -1,9 +1,11 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Search from "../utils/Search"
 import Categories from "../utils/Categories"
 import { Link, NavLink } from "react-router-dom"
+import { ProductsContext } from "../../context/Products"
 
 function Header(){
+    const {cart} = useContext(ProductsContext)
     const [menu, setMenu] = useState(false)
     const [searchBox, setSearchBox] = useState(false)
     const [categoriesOpen, setCategoriesOpen] = useState(false)
@@ -44,8 +46,9 @@ function Header(){
                         <button title="Categories" onClick={()=>{setCategoriesOpen(!categoriesOpen)}} className="xl:hidden text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-icons"></i>
                         </button>
-                        <Link to="/cart" title="Cart Shopping" className="text-xl text-[--primaryTwo-clr]">
+                        <Link to="/cart" title="Cart Shopping" className="relative text-xl text-[--primaryTwo-clr]">
                             <i className="fa-solid fa-cart-shopping"></i>
+                            { cart.length > 0 && <span className="absolute top-[-9px] right-[-10px] w-5 h-5 leading-5 text-center font-medium text-sm bg-red-500 text-white rounded-[50%]">{cart.length}</span>}
                         </Link>
                         <button onClick={()=>{setMenu(!menu)}} className={`${menu ? "fa-xmark" : "fa-bars-staggered" } lg:hidden text-xl text-[--primaryTwo-clr]`}>
                             <i className="fa-solid"></i>

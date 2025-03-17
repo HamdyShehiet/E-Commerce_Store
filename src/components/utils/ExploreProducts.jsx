@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { ProductsContext } from "../../context/Products";
 
 function ExploreProducts(){
-        const {displaySomeProducts, loading, error} = useContext(ProductsContext)
+        const {displaySomeProducts, loading, error, addToCart} = useContext(ProductsContext)
 
     return(
         <section className="py-12">
@@ -35,7 +35,7 @@ function ExploreProducts(){
                             <button className="w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]"><i className="fa-regular fa-heart"></i></button>
                             <button className="w-10 h-10 leading-10 text-center rounded-[50%] bg-[--primaryOne-clr]"><i className="fa-solid fa-eye"></i></button>
                         </div>
-                        <button className="add-to-cart absolute z-[10] bottom-[-3rem] right-0 w-full py-3 text-base font-medium bg-black text-white">Add To Cart</button>
+                        <button onClick={()=>addToCart(product)} className="add-to-cart absolute z-[10] bottom-[-3rem] right-0 w-full py-3 text-base font-medium bg-black text-white">Add To Cart</button>
                         <Link to={`/product/${id}`}><img src={thumbnail}  alt="Product Image" /></Link>
                         </div>
                         <Link to={`/product/${id}`} className="text-base font-medium text-black">{title || ""}</Link>

@@ -23,31 +23,26 @@ function App() {
   return (
     <>
       <Banar />
+      <ProductsProvider>
       <CategoriesProvider>
         <Header />
       </CategoriesProvider>
-      <Routes>
-        <Route path="*" element={<NotFound />} />
-        <Route path="/category/:categoryName" element={<CategoriesProducts />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<CheckOut />} />
-        <Route
-          path="/wishlist"
-          element={
-            <ProductsProvider>
-              <WishList />
-            </ProductsProvider>
-          }
-        />
-        <Route path="/products" element={<Products />} />
-      </Routes>
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/category/:categoryName" element={<CategoriesProducts />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/wishlist" element={<WishList />} />
+          <Route path="/products" element={<Products />} />
+        </Routes>
+      </ProductsProvider>
       <Footer />
     </>
   );
