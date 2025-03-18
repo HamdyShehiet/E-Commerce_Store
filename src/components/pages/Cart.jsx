@@ -38,7 +38,7 @@ function Cart() {
                         <span className="font-semibold">{item.title}</span>
                       </td>
                       <td className="px-3 py-6">{new Date().toLocaleDateString()}</td>
-                      <td className="px-3 py-6">${item.price}</td>
+                      <td className="px-3 py-6 font-medium">${item.price}</td>
                       <td className="px-3 py-6">
                         <div className="w-[9rem]">
                           <div className="relative">
@@ -63,10 +63,11 @@ function Cart() {
                           </div>
                         </div>
                       </td>
-                      <td className="px-3 py-6">${item.price}</td>
+                      <td className="px-3 py-6 font-medium">${item.price}</td>
                       <td className="px-4 py-6">
-                        <button onClick={() => deleteProductFromCart(item)} className=" font-semibold">
-                          Delete
+                        <button onClick={() => deleteProductFromCart(item)} className="flex items-center gap-1 font-semibold text-[--secondaryThree-clr]">
+                          <i className="fa-solid fa-trash"></i>
+                          <span>Delete</span>
                         </button>
                       </td>
                     </tr>
@@ -77,8 +78,8 @@ function Cart() {
           </div>
           <div className="flex items-center flex-wrap justify-between gap-3 font-[poppins]">
             <button className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Return To Shop</button>
-            <button className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Update Cart</button>
-            {cart.length > 0 && <button onClick={()=>deleteAllProductsFromCart()} className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Delete All</button>}
+            <button className="flex items-center gap-2 py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black"><i class="fa-solid fa-pen-to-square"></i><span>Update Cart</span></button>
+            {cart.length > 0 && <button onClick={()=>deleteAllProductsFromCart()} className="flex items-center gap-2 py-3 px-7  rounded text-base font-medium bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr]"><i className="fa-solid fa-trash"></i><span>Delete All</span></button>}
             {deletedItem && (
               <button onClick={() => undoDeleteItem()} className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">
                 Undo Delete
@@ -88,7 +89,7 @@ function Cart() {
           <div className="flex  items-start justify-center gap-y-6 lg:justify-between max-lg:flex-wrap-reverse mt-7 font-[poppins]">
             <div className="flex items-center gap-4 flex-wrap">
               <input type="text" placeholder="Coupon Code" className="py-3 px-4 font-medium rounded outline-none border-[--border-clr] border-[1px] bg-transparent" />
-              <button className="py-3 px-8 rounded-[4px] text-base font-medium  bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr] cursor-pointer">Apply Coupon</button>
+              <button className="py-3 px-8 rounded text-base font-medium  bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr] cursor-pointer">Apply Coupon</button>
             </div>
             <div className="flex flex-col gap-6 max-w-[28rem] w-full p-5 border-[1px] border-[--border-clr] border-solid rounded">
               <span className="font-medium text-xl text-black">Cart Total</span>
