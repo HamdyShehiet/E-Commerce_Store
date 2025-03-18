@@ -76,7 +76,15 @@ function ProductsProvider({ children }) {
       }
     }
 
-  return <ProductsContext.Provider value={{ displaySomeProducts, allProducts, loading, error, cart, addToCart, deleteProductFromCart, deletedItem, undoDeleteItem }}>{children}</ProductsContext.Provider>;
+    /**
+   * Delete All Products from the Cart When I Click On The Button
+   */
+    const deleteAllProductsFromCart = () => {
+      setCart([])
+      localStorage.removeItem("cart")
+    };
+
+  return <ProductsContext.Provider value={{ displaySomeProducts, allProducts, loading, error, cart, addToCart, deleteProductFromCart, deletedItem, deleteAllProductsFromCart, undoDeleteItem }}>{children}</ProductsContext.Provider>;
 }
 
 export default ProductsProvider;

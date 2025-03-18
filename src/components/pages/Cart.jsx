@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { ProductsContext } from "../../context/Products";
 
 function Cart() {
-  const { cart , deleteProductFromCart, deletedItem, undoDeleteItem } = useContext(ProductsContext);
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[])
+  const { cart, deleteProductFromCart, deletedItem, deleteAllProductsFromCart, undoDeleteItem } = useContext(ProductsContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section className="py-10">
@@ -65,7 +65,9 @@ function Cart() {
                       </td>
                       <td className="px-3 py-6">${item.price}</td>
                       <td className="px-4 py-6">
-                        <button onClick={()=>deleteProductFromCart(item)} className=" font-semibold">Delete</button>
+                        <button onClick={() => deleteProductFromCart(item)} className=" font-semibold">
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   );
@@ -76,7 +78,12 @@ function Cart() {
           <div className="flex items-center flex-wrap justify-between gap-3 font-[poppins]">
             <button className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Return To Shop</button>
             <button className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Update Cart</button>
-            { deletedItem &&<button onClick={()=>undoDeleteItem()} className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Undo Delete</button>}
+            {cart.length > 0 && <button onClick={()=>deleteAllProductsFromCart()} className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Delete All</button>}
+            {deletedItem && (
+              <button onClick={() => undoDeleteItem()} className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">
+                Undo Delete
+              </button>
+            )}
           </div>
           <div className="flex  items-start justify-center gap-y-6 lg:justify-between max-lg:flex-wrap-reverse mt-7 font-[poppins]">
             <div className="flex items-center gap-4 flex-wrap">
