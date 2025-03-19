@@ -5,7 +5,10 @@ function ProductsProvider({ children }) {
   const [allProducts, setAllProducts] = useState({});
   const { products = [] } = allProducts;
   const displaySomeProducts = products.slice(0, 10);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(()=>{
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    return storedCart;
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [deletedItem, setDeletedItem] = useState(null);
@@ -34,12 +37,9 @@ function ProductsProvider({ children }) {
   }, []);
 
   /**
-   * Get the Stored Data From LocalStorage
+   * Get the Stored Data From LocalStorage and save as Initial Value when Rerender The Component
    */
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(storedCart);
-  }, []);
+  
 
   /**
    * Set Products In LocalStorage
@@ -82,6 +82,7 @@ function ProductsProvider({ children }) {
   const deleteAllProductsFromCart = () => {
     setCart([]);
     localStorage.removeItem("cart");
+    window.scrollTo(0, 0);
   };
 
   return (

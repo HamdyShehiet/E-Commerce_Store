@@ -2,7 +2,10 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 function SignUp(){
-    const [users, setUsers] = useState([])
+    const [users, setUsers] = useState(()=>{
+        const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+        return storedUsers;
+    })
     const [success, setSuccess] = useState(false)
     const [registerFormInputs, setRegisterFormInputs] = useState(
         {
