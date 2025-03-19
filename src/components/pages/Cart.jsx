@@ -4,12 +4,15 @@ import { ProductsContext } from "../../context/Products";
 
 function Cart() {
   const { cart, deleteProductFromCart, deletedItem, deleteAllProductsFromCart, undoDeleteItem } = useContext(ProductsContext);
+
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   }, []);
+
 
   return (
     <>
