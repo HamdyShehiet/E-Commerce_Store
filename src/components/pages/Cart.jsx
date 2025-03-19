@@ -78,8 +78,13 @@ function Cart() {
           </div>
           <div className="flex items-center flex-wrap justify-between gap-3 font-[poppins]">
             <button className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Return To Shop</button>
-            <button className="flex items-center gap-2 py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black"><i class="fa-solid fa-pen-to-square"></i><span>Update Cart</span></button>
-            {cart.length > 0 && <button onClick={()=>deleteAllProductsFromCart()} className="flex items-center gap-2 py-3 px-7  rounded text-base font-medium bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr]"><i className="fa-solid fa-trash"></i><span>Delete All</span></button>}
+            <button className="flex items-center gap-2 py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">
+              <i className="fa-solid fa-pen-to-square"></i>
+              <span>Update Cart</span></button>
+            {cart.length > 0 && <button onClick={()=>deleteAllProductsFromCart()} className="flex items-center gap-2 py-3 px-7  rounded text-base font-medium bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr]">
+              <i className="fa-solid fa-trash"></i>
+              <span>Delete All</span>
+            </button>}
             {deletedItem && (
               <button onClick={() => undoDeleteItem()} className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">
                 Undo Delete

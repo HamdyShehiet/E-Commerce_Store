@@ -14,7 +14,7 @@ function WishList() {
               <span>Wishlist</span>
               <span>(4)</span>
             </div>
-            <button className="py-3 px-10 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Move All To Bag</button>
+            <button className="py-3 px-6 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Move All To Bag</button>
           </div>
           <div className="row mx-auto w-full grid grid-cols-[repeat(auto-fit,min(18.125rem,_100%))] justify-center gap-8 font-[poppins]">
             <div className="col flex flex-col gap-3">
@@ -106,7 +106,7 @@ function WishList() {
             <span className="relative pl-7 font-semibold text-base text-[--secondaryThree-clr] before:absolute before:content-[''] before:left-0 before:top-[50%] before:translate-y-[-50%] before:w-5 before:h-10 before:rounded before:bg-[--secondaryThree-clr]">
               Just For You
             </span>
-            <Link to="/products" className="py-3 px-10 border-[1px] border-[--border-clr] border-solid rounded text-xl font-normal text-black">
+            <Link to="/products" className="py-3 px-6 border-[1px] border-[--border-clr] border-solid rounded text-xl font-normal text-black">
               See All
             </Link>
           </div>
