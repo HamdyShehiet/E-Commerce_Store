@@ -19,11 +19,11 @@ function SignUp() {
   }, [users]);
 
   const signUp = () => {
-    if (!email && !name && !password) {
+    if (!email || !name || !password) {
       console.log("Enter a Valid userName And Email And Passwored");
     } else {
       setUsers([...users, {...registerFormInputs, id: users.length + 1}]);
-      // console.log(users)
+      console.log(users)
       console.log("SignUp Successful");
       setSuccess(true);
       setTimeout(() => {

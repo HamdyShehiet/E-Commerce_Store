@@ -64,16 +64,18 @@ function Header(){
                         <button onClick={()=>{setMenu(!menu)}} className={`${menu ? "fa-xmark" : "fa-bars-staggered" } lg:hidden text-xl text-[--primaryTwo-clr]`}>
                             <i className="fa-solid"></i>
                         </button>
-                        {userStatus && <button onClick={()=>{setUserOptions(!userOptions)}}  className="avatar w-8 h-8 rounded-[50%] bg-red-500">
-                            <span className="text-white">C</span>
+                        {userStatus && <button onClick={()=>{setUserOptions(!userOptions)}}  className="avatar w-8 h-8 rounded-[50%] text-sm bg-red-500 text-white">
+                            <i className="fa-solid fa-user"></i>
                         </button>}
                     </div>
                 </nav>
                 {categoriesOpen && <Categories setCategoriesOpen={setCategoriesOpen}/>}
-                {userOptions && userStatus  && <ul className="userOptions text-red-900 absolute top-14 right-0">
-                    <li><Link to="/account">My Account</Link></li>
-                    <li><Link to="/">Settings</Link></li>
-                    <li><button onClick={logOut}>LogOut</button></li>
+                {userOptions && userStatus  && <ul className="flex items-start flex-col gap-5 absolute right-5 top-[4rem] lg:top-[5rem] z-[7] max-w-[17rem] w-full  px-6 py-6 rounded-sm font-[poppins] text-base font-medium bg-white overflow-y-scroll whitespace-nowrap text-black srcrollbar-v scrollbar-thumb scrollbar-track shadow-[0px_2px_6px_rgba(0,_0,_0,_.1),0px_-2px_6px_rgba(0,_0,_0,_.1)]">
+                    <li><Link to="/account" className="flex items-center gap-2"><i className="fa-solid fa-user"></i><span>Manage My Account</span></Link></li>
+                    <li className="flex items-center gap-2"><i className="fa-solid fa-box-open"></i><span>My Order</span></li>
+                    <li className="flex items-center gap-2"><i className="fa-solid fa-circle-xmark"></i><span>My Cancellations</span></li>
+                    <li className="flex items-center gap-2"><i className="fa-solid fa-star"></i><span>My Reviews</span></li>
+                    <li><button onClick={logOut} className="flex items-center gap-2"><i className="fa-solid fa-right-from-bracket"></i><span>Logout</span></button></li>
                 </ul>}
             </div>
         </header>
