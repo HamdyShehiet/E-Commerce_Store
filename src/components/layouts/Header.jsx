@@ -11,14 +11,14 @@ function Header(){
     const [searchBox, setSearchBox] = useState(false)
     const [userOptions, setUserOptions] = useState(false)
     const [categoriesOpen, setCategoriesOpen] = useState(false)
-    const userStatus = localStorage.getItem("userLogin")
+    const userStatus = JSON.parse(localStorage.getItem("userLogedIn")) 
 
     const menuHidden = ()=>{
         setMenu(false)
     }
 
     const logOut = ()=>{
-        localStorage.setItem("userLogin","")
+        localStorage.removeItem("userLogedIn")
         navigate("/login")
         setUserOptions(false)
     }

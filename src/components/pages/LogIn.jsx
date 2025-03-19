@@ -17,14 +17,14 @@ function LogIn() {
   const logIn = () => {
     const existUser = storedUsers.find((item) => item.email === email && item.password === password);
     if (existUser) {
+      localStorage.setItem("userLogedIn",JSON.stringify(existUser))
+      navigate("/");
       console.log(existUser);
       console.log("Login Successful");
       setLoginFormInputs({
         email: "",
         password: "",
       });
-      navigate("/");
-      localStorage.setItem("userLogin","Login Successful")
     } else {
       console.log("Not Found");
     }
