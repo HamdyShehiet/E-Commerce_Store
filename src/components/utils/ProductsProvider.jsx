@@ -5,7 +5,7 @@ function ProductsProvider({ children }) {
   const [allProducts, setAllProducts] = useState({});
   const { products = [] } = allProducts;
   const displaySomeProducts = products.slice(0, 10);
-  const [cart, setCart] = useState(()=>{
+  const [cart, setCart] = useState(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     return storedCart;
   });
@@ -39,7 +39,6 @@ function ProductsProvider({ children }) {
   /**
    * Get the Stored Data From LocalStorage and save as Initial Value when Rerender The Component
    */
-  
 
   /**
    * Set Products In LocalStorage
@@ -86,7 +85,7 @@ function ProductsProvider({ children }) {
   };
 
   return (
-    <ProductsContext.Provider value={{ displaySomeProducts, allProducts, loading, error, cart, deletedItem, addToCart, deleteProductFromCart,deleteAllProductsFromCart, undoDeleteItem }}>
+    <ProductsContext.Provider value={{ displaySomeProducts, allProducts, loading, error, cart, deletedItem, addToCart, deleteProductFromCart, deleteAllProductsFromCart, undoDeleteItem }}>
       {children}
     </ProductsContext.Provider>
   );
