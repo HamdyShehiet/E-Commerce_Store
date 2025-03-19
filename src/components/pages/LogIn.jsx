@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function LogIn(){
+    const navigate = useNavigate()
     const [loginFormInputs, setLoginFormInputs] = useState(
         {
             email:"",
@@ -10,10 +11,25 @@ function LogIn(){
     )
     const {email, password} = loginFormInputs
 
+    /**
+     *  Get Stored Users Accounts From LocalStorage
+     */
+    const storedUsers = JSON.parse(localStorage.getItem("users"))
 
 
     const logIn =()=>{
-
+        const existUser= storedUsers.find((item)=> item.email === email && item.password === password)
+        if(existUser){
+            console.log(existUser);
+            console.log("Login Successful");
+            setLoginFormInputs({
+                email: "",
+                password: "",
+            })
+            navigate("/")
+        }else{
+            console.log("Not Found")
+        }
     }
 
 
