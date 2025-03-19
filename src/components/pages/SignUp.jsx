@@ -22,7 +22,7 @@ function SignUp() {
     if (!email && !name && !password) {
       console.log("Enter a Valid userName And Email And Passwored");
     } else {
-      setUsers([...users, registerFormInputs]);
+      setUsers([...users, {...registerFormInputs, id: users.length + 1}]);
       // console.log(users)
       console.log("SignUp Successful");
       setSuccess(true);

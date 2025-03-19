@@ -24,6 +24,7 @@ function LogIn() {
         password: "",
       });
       navigate("/");
+      localStorage.setItem("userLogin","Login Successful")
     } else {
       console.log("Not Found");
     }
