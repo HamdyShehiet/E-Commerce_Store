@@ -52,10 +52,10 @@ function Footer(){
                             </div>
                         </div>
                         <ul className="flex items-center gap-6">
-                            <li><a href="/" target="_blank"><img src="/public/icons/facebook.png" alt="FaceBook Icon" /></a></li>
-                            <li><a href="/" target="_blank"><img src="/public/icons/twitter.png" alt="Twitter Icon" /></a></li>
-                            <li><a href="/" target="_blank"><img src="/public/icons/instagram.png" alt="Instagram Icon" /></a></li>
-                            <li><a href="/" target="_blank"><img src="/public/icons/linked-in.png" alt="LinkedIn Icon" /></a></li>
+                            <li><a href="/" target="_blank"><img src="/icons/facebook.png" alt="FaceBook Icon" /></a></li>
+                            <li><a href="/" target="_blank"><img src="/icons/twitter.png" alt="Twitter Icon" /></a></li>
+                            <li><a href="/" target="_blank"><img src="/icons/instagram.png" alt="Instagram Icon" /></a></li>
+                            <li><a href="/" target="_blank"><img src="/icons/linked-in.png" alt="LinkedIn Icon" /></a></li>
                         </ul>
                     </div>
                 </div>
