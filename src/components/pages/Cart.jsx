@@ -6,15 +6,14 @@ function Cart() {
   const { cart, setCart } = useContext(ProductsContext);
   const [deletedItem, setDeletedItem] = useState(null);
 
-
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }, []);
-
-    /**
+  // console.log(cart)
+  /**
    * Delete Product from the Cart When I Click On The Button
    */
   const deleteProductFromCart = (product) => {
@@ -24,18 +23,17 @@ function Cart() {
     console.log("I am Deleted", product);
   };
 
-    /**
+  /**
    * Undo Delete Product from the Cart When I Click On The Button
    */
-    const undoDeleteItem = () => {
+  const undoDeleteItem = () => {
     if (deletedItem) {
       setCart([...cart, deletedItem]);
       setDeletedItem(null);
     }
   };
 
-
-    /**
+  /**
    * Delete All Products from the Cart When I Click On The Button
    */
   const deleteAllProductsFromCart = () => {
@@ -43,7 +41,6 @@ function Cart() {
     localStorage.removeItem("cart");
     window.scrollTo(0, 0);
   };
-
 
   return (
     <>
@@ -89,7 +86,7 @@ function Cart() {
                             <input
                               type="number"
                               readOnly
-                              value="0"
+                              value={item.quantity}
                               className="w-full bg-transparent placeholder:text-slate-400 text-[--primaryTwo-clr] text-sm border border-slate-200 rounded-md pl-1 pr-20 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm appearance-none text-center"
                             />
                             <button
@@ -103,7 +100,7 @@ function Cart() {
                       </td>
                       <td className="px-3 py-6 font-medium">${item.price}</td>
                       <td className="px-4 py-6">
-                        <button onClick={() => deleteProductFromCart(item)}  className="flex items-center gap-1 font-semibold text-[--secondaryThree-clr]">
+                        <button onClick={() => deleteProductFromCart(item)} className="flex items-center gap-1 font-semibold text-[--secondaryThree-clr]">
                           <i className="fa-solid fa-trash"></i>
                           <span>Delete</span>
                         </button>

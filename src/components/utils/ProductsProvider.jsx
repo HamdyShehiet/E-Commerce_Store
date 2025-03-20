@@ -48,19 +48,25 @@ function ProductsProvider({ children }) {
 
   /**
    * Add Product To Cart When I Click On The Button
+   * And If the Same Product There I will Increase Quantity Else I Will Add One
    */
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    const existProduct = cart.find((item) => item.id === product.id);
+    console.log(existProduct);
+    if (existProduct) {
+      const updatedCart = cart.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 } // التأكد من وجود الكمية
+          : item
+      );
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
     console.log(cart);
   };
 
-
-
-  return (
-    <ProductsContext.Provider value={{ allProducts, displaySomeProducts, loading, error, cart, setCart, addToCart}}>
-      {children}
-    </ProductsContext.Provider>
-  );
+  return <ProductsContext.Provider value={{ allProducts, displaySomeProducts, loading, error, cart, setCart, addToCart }}>{children}</ProductsContext.Provider>;
 }
 
 export default ProductsProvider;
