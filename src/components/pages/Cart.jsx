@@ -42,6 +42,36 @@ function Cart() {
     window.scrollTo(0, 0);
   };
 
+  /**
+   * Increase The Quantity Of The Product
+   */
+  function increase(product){
+    console.log(product);
+    const IncreaseQuantity = cart.map((item) =>
+      item.id === product.id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+    setCart(IncreaseQuantity);
+  }
+  /**
+   * Decrease The Quantity Of The Product
+   */
+  function decrease(product){
+    console.log(product);
+    const decreaseQuantity = cart.map((item) =>{
+      if(item.id !== product.id){
+        return item
+      }
+      if( item.quantity == 1){
+        return item
+      }
+      if(item.id === product.id){
+        return { ...item, quantity: item.quantity - 1 }
+      }
+    });
+    setCart(decreaseQuantity);
+  }
   return (
     <>
       <section className="py-10">
@@ -78,6 +108,7 @@ function Cart() {
                         <div className="w-[9rem]">
                           <div className="relative">
                             <button
+                            onClick={()=>decrease(item)}
                               className="absolute right-9 top-1 rounded bg-[--primaryTwo-clr] p-1 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 "
                               type="button"
                             >
@@ -90,6 +121,7 @@ function Cart() {
                               className="w-full bg-transparent placeholder:text-slate-400 text-[--primaryTwo-clr] text-sm border border-slate-200 rounded-md pl-1 pr-20 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm appearance-none text-center"
                             />
                             <button
+                              onClick={()=>increase(item)}
                               className="absolute right-1 top-1 rounded bg-[--primaryTwo-clr] p-1 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 "
                               type="button"
                             >
