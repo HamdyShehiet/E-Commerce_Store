@@ -11,7 +11,6 @@ function ProductsProvider({ children }) {
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [deletedItem, setDeletedItem] = useState(null);
 
   /**
    * Get Data
@@ -55,37 +54,10 @@ function ProductsProvider({ children }) {
     console.log(cart);
   };
 
-  /**
-   * Delete Product from the Cart When I Click On The Button
-   */
-  const deleteProductFromCart = (product) => {
-    setDeletedItem(product);
-    console.log("Deleted Item", deletedItem);
-    setCart(cart.filter((item) => item.id !== product.id));
-    console.log("I am Deleted", product);
-  };
 
-  /**
-   * Undo Delete Product from the Cart When I Click On The Button
-   */
-  const undoDeleteItem = () => {
-    if (deletedItem) {
-      setCart([...cart, deletedItem]);
-      setDeletedItem(null);
-    }
-  };
-
-  /**
-   * Delete All Products from the Cart When I Click On The Button
-   */
-  const deleteAllProductsFromCart = () => {
-    setCart([]);
-    localStorage.removeItem("cart");
-    window.scrollTo(0, 0);
-  };
 
   return (
-    <ProductsContext.Provider value={{ displaySomeProducts, allProducts, loading, error, cart, deletedItem, addToCart, deleteProductFromCart, deleteAllProductsFromCart, undoDeleteItem }}>
+    <ProductsContext.Provider value={{ allProducts, displaySomeProducts, loading, error, cart, setCart, addToCart}}>
       {children}
     </ProductsContext.Provider>
   );

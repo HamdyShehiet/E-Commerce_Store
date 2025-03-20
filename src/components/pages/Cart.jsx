@@ -1,9 +1,10 @@
-import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../../context/Products";
 
 function Cart() {
-  const { cart, deleteProductFromCart, deletedItem, deleteAllProductsFromCart, undoDeleteItem } = useContext(ProductsContext);
+  const { cart, setCart } = useContext(ProductsContext);
+  const [deletedItem, setDeletedItem] = useState(null);
 
 
   useEffect(() => {
@@ -12,6 +13,36 @@ function Cart() {
       behavior: 'smooth',
     });
   }, []);
+
+    /**
+   * Delete Product from the Cart When I Click On The Button
+   */
+  const deleteProductFromCart = (product) => {
+    setDeletedItem(product);
+    console.log("Deleted Item", deletedItem);
+    setCart(cart.filter((item) => item.id !== product.id));
+    console.log("I am Deleted", product);
+  };
+
+    /**
+   * Undo Delete Product from the Cart When I Click On The Button
+   */
+    const undoDeleteItem = () => {
+    if (deletedItem) {
+      setCart([...cart, deletedItem]);
+      setDeletedItem(null);
+    }
+  };
+
+
+    /**
+   * Delete All Products from the Cart When I Click On The Button
+   */
+  const deleteAllProductsFromCart = () => {
+    setCart([]);
+    localStorage.removeItem("cart");
+    window.scrollTo(0, 0);
+  };
 
 
   return (
@@ -72,7 +103,7 @@ function Cart() {
                       </td>
                       <td className="px-3 py-6 font-medium">${item.price}</td>
                       <td className="px-4 py-6">
-                        <button onClick={() => deleteProductFromCart(item)} className="flex items-center gap-1 font-semibold text-[--secondaryThree-clr]">
+                        <button onClick={() => deleteProductFromCart(item)}  className="flex items-center gap-1 font-semibold text-[--secondaryThree-clr]">
                           <i className="fa-solid fa-trash"></i>
                           <span>Delete</span>
                         </button>
