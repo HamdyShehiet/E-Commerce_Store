@@ -62,6 +62,16 @@ function ProductsProvider({ children }) {
     console.log(cart);
   };
 
+  /**
+   * Get Total Price For All Cart Products 
+   */
+  const totalPrice = ()=>{
+    return cart.reduce((total, item)=> total + (item.price * item.quantity) ,0)
+  }
+  // const totalPrice = cart.reduce((total, item)=> total + (item.price * item.quantity) ,0)
+  console.log(totalPrice().toFixed(2))
+
+
   return (
     <ProductsContext.Provider
       value={{
@@ -72,6 +82,7 @@ function ProductsProvider({ children }) {
         cart,
         setCart,
         addToCart,
+        totalPrice,
       }}
     >
       {children}

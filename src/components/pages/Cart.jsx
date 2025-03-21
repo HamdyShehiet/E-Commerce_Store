@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../../context/Products";
 
 function Cart() {
-  const { cart, setCart } = useContext(ProductsContext);
+  const { cart, setCart, totalPrice } = useContext(ProductsContext);
   const [deletedItem, setDeletedItem] = useState(null);
 
   useEffect(() => {
@@ -174,7 +174,7 @@ function Cart() {
               <ul className="flex flex-col gap-5 font-normal text-base text-black">
                 <li className="inline-flex items-center justify-between pb-4 border-[--border-clr] border-b-[1px]">
                   <span>Subtotal</span>
-                  <span>$1750</span>
+                  <span>${totalPrice().toFixed(2)}</span>
                 </li>
                 <li className="inline-flex items-center justify-between pb-4 border-[--border-clr] border-b-[1px]">
                   <span>Shipping</span>
@@ -182,7 +182,7 @@ function Cart() {
                 </li>
                 <li className="inline-flex items-center justify-between">
                   <span>Total</span>
-                  <span>$1750</span>
+                  <span>${totalPrice().toFixed(2)}</span>
                 </li>
               </ul>
               <Link to="/checkout" className="self-center py-4 px-12 rounded-[4px] text-base font-medium  bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr] cursor-pointer">
