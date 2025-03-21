@@ -68,8 +68,7 @@ function ProductsProvider({ children }) {
   const totalPrice = ()=>{
     return cart.reduce((total, item)=> total + (item.price * item.quantity) ,0)
   }
-  // const totalPrice = cart.reduce((total, item)=> total + (item.price * item.quantity) ,0)
-  console.log(totalPrice().toFixed(2))
+  console.log(totalPrice())
 
 
   return (
