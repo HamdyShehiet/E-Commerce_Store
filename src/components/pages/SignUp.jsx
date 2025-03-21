@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 function SignUp() {
   const [users, setUsers] = useState(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
     return storedUsers;
   });
-  const [success, setSuccess] = useState(false);
   const [registerFormInputs, setRegisterFormInputs] = useState({
     name: "",
     email: "",
@@ -18,17 +19,27 @@ function SignUp() {
     localStorage.setItem("users", JSON.stringify(users));
   }, [users]);
 
+  const showToastMessage = () => {
+    toast.success("SignUp Successful", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
   const signUp = () => {
     if (!email || !name || !password) {
       console.log("Enter a Valid userName And Email And Passwored");
     } else {
-      setUsers([...users, {...registerFormInputs, id: users.length + 1}]);
-      console.log(users)
+      setUsers([...users, { ...registerFormInputs, id: users.length + 1 }]);
+      console.log(users);
       console.log("SignUp Successful");
-      setSuccess(true);
-      setTimeout(() => {
-        setSuccess(false);
-      }, 5000);
+      showToastMessage();
     }
     setRegisterFormInputs({
       name: "",
@@ -40,12 +51,7 @@ function SignUp() {
   return (
     <section className="py-10">
       <div className="container relative grid justify-center lg:justify-start grid-cols-[min(24rem,_100%)] lg:grid-cols-[55%_22rem] items-center lg:gap-16 mx-auto">
-        {success && (
-          <div className="flex items-center gap-2 fixed top-[140px] right-[15px] py-2 px-6 rounded font-[poppins] font-medium text-sm shadow-md  bg-[--secondaryTwo-clr] text-[--secondaryFour-clr]">
-            <i className="fa-solid fa-xmark"></i>
-            <span>SignUp Successful</span>
-          </div>
-        )}
+        <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
         <div className="hidden lg:block text-center">
           <img src="/images/frame7.png" alt="Sign Up Image" />
         </div>

@@ -54,11 +54,7 @@ function ProductsProvider({ children }) {
     const existProduct = cart.find((item) => item.id === product.id);
     console.log(existProduct);
     if (existProduct) {
-      const updatedCart = cart.map((item) =>
-        item.id === product.id
-          ? { ...item, quantity: item.quantity + 1 } // التأكد من وجود الكمية
-          : item
-      );
+      const updatedCart = cart.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
       setCart(updatedCart);
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
@@ -66,7 +62,21 @@ function ProductsProvider({ children }) {
     console.log(cart);
   };
 
-  return <ProductsContext.Provider value={{ allProducts, displaySomeProducts, loading, error, cart, setCart, addToCart }}>{children}</ProductsContext.Provider>;
+  return (
+    <ProductsContext.Provider
+      value={{
+        allProducts,
+        displaySomeProducts,
+        loading,
+        error,
+        cart,
+        setCart,
+        addToCart,
+      }}
+    >
+      {children}
+    </ProductsContext.Provider>
+  );
 }
 
 export default ProductsProvider;

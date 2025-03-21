@@ -144,7 +144,7 @@ function Cart() {
             </table>
           </div>
           <div className="flex items-center flex-wrap justify-between gap-3 font-[poppins]">
-            <button className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Return To Shop</button>
+            <Link to="/" className="py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">Return To Shop</Link>
             <button className="flex items-center gap-2 py-3 px-7 border-[1px] border-[--border-clr] border-solid rounded text-base font-medium text-black">
               <i className="fa-solid fa-pen-to-square"></i>
               <span>Update Cart</span>
