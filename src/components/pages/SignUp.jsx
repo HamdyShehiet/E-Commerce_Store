@@ -8,17 +8,25 @@ function SignUp() {
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
     return storedUsers;
   });
+
   const [registerFormInputs, setRegisterFormInputs] = useState({
     name: "",
     email: "",
     password: "",
   });
+
   const { name, email, password } = registerFormInputs;
+
+  const [errors, setErrors] = useState({});
+
+
 
   useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));
   }, [users]);
 
+
+  
   const showToastMessage = () => {
     toast.success("SignUp Successful", {
       position: "top-center",
@@ -32,14 +40,58 @@ function SignUp() {
     });
   };
 
+  const signUpValidate = () => {
+    const newErrors = {};
+    /**
+     * Name Validate
+     */
+    if (!name.trim()) {
+      newErrors.name = "Name Is Required";
+    } else if (name.trim().length < 3) {
+      newErrors.name = "Name Must be 3 Characters at least";
+    }
+
+    /**
+     * Email Validate
+     */
+    if (!email.trim()) {
+      newErrors.email = "Email Is Required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = "Not Valid Email";
+    }
+
+    /**
+     * Password Validate
+     */
+    if (!password.trim()) {
+      newErrors.password = "Password Is Required";
+    } else if (password.trim().length < 7) {
+      newErrors.password = "Your Password Is Weak";
+    }
+
+    setErrors(newErrors);
+    /**
+     * If This Condition is Verified  ( newErrors.length !== 0 )  => false
+     * else  => true
+     */
+    return Object.keys(newErrors).length === 0;
+  };
+
   const signUp = () => {
-    if (!email || !name || !password) {
-      console.log("Enter a Valid userName And Email And Passwored");
-    } else {
-      setUsers([...users, { ...registerFormInputs, id: users.length + 1 }]);
-      console.log(users);
-      console.log("SignUp Successful");
-      showToastMessage();
+    if (signUpValidate()) {
+      const existUser = users.find((item) =>  item.email === email)
+      console.log(existUser)
+      if(!existUser){
+        setUsers([...users, { ...registerFormInputs, id: users.length + 1 }]);
+        console.log(users);
+        console.log("SignUp Successful");
+        showToastMessage();
+      }else{
+        console.log("This Email has already used")
+      }
+    }else {
+      // Only check
+      console.log(errors);
     }
     setRegisterFormInputs({
       name: "",
