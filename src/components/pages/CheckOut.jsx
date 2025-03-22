@@ -3,7 +3,7 @@ import { ProductsContext } from "../../context/Products";
 import { Link } from "react-router-dom";
 
 function CheckOut() {
-  const { cart, setCart, totalPrice } = useContext(ProductsContext);
+  const { cart, totalPrice } = useContext(ProductsContext);
 
   return (
     <section className="py-10">
@@ -67,7 +67,8 @@ function CheckOut() {
             <div className="flex flex-col gap-4 font-[poppins] py-2 px-2 h-[11.25rem] overflow-auto whitespace-nowrap srcrollbar-v scrollbar-track .scrollbar-thumb">
               {cart.map((item) => (
                 <div key={item.id} className="flex items-center justify-between gap-2 font-normal trext-base text-black ">
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 relative">
+                    <span className="absolute top-0 left-0 w-7 h-7 leading-7 text-center rounded-[50%] text-white bg-[--secondaryThree-clr]">{item.quantity}</span>
                     <img src={item.thumbnail} alt={item.title} className="w-20 h-20 object-cover rounded-lg" />
                     <span>{item.title}</span>
                   </div>
@@ -79,7 +80,7 @@ function CheckOut() {
             <ul className="flex flex-col gap-3 py-2 px-2 font-[poppins] font-medium text-base">
               <li className="flex items-center justify-between pb-4 border-[--border-clr] border-b-[1px]">
                 <span>Subtotal:</span>
-                <span>$222</span>
+                <span>${totalPrice().toFixed() || "0"}</span>
               </li>
               <li className="flex items-center justify-between pb-4 border-[--border-clr] border-b-[1px]">
                 <span>Shipping:</span>
@@ -87,7 +88,7 @@ function CheckOut() {
               </li>
               <li className="flex items-center justify-between pb-4 border-[--border-clr] border-b-[1px] ">
                 <span>Total:</span>
-                <span>$333</span>
+                <span>${totalPrice().toFixed() || "0"}</span>
               </li>
             </ul>
 

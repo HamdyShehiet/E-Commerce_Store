@@ -130,7 +130,7 @@ function Cart() {
                           </div>
                         </div>
                       </td>
-                      <td className="px-3 py-6 font-medium">${item.price * item.quantity}</td>
+                      <td className="px-3 py-6 font-medium">${(item.price * item.quantity).toFixed(2)}</td>
                       <td className="px-4 py-6">
                         <button onClick={() => deleteProductFromCart(item)} className="flex items-center gap-1 font-semibold text-[--secondaryThree-clr]">
                           <i className="fa-solid fa-trash"></i>
