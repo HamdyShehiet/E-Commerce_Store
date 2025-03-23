@@ -32,7 +32,49 @@ function About() {
           </div>
         </div>
       </section>
+      <section className="py-10">
+        <div className="container mx-auto grid grid-cols-[repeat(auto-fit,min(16.875rem,_100%))] justify-center gap-8 font-[poppins]">
+          <div className="border rounded p-6 flex flex-col items-center justify-center">
+            <div className="bg-gray-200 rounded-full p-3 mb-4">
+              <div className="flex items-center justify-center w-[3.625rem] h-[3.625rem] rounded-full bg-black text-white">
+                <CiShop className="text-2xl" />
+              </div>
+            </div>
+            <h2 className="text-3xl font-bold">10.5k</h2>
+            <p className="text-base font-normal text-center">Sellers active our site</p>
+          </div>
 
+          <div className="border rounded p-6 flex flex-col items-center justify-center bg-[--secondaryThree-clr]">
+            <div className="bg-gray-300 bg-opacity-20 rounded-full p-3 mb-4">
+              <div className="flex items-center justify-center w-[3.625rem] h-[3.625rem] rounded-full bg-white text-black">
+                <MdOutlineAttachMoney className="text-3xl"/>
+              </div>
+            </div>
+            <h2 className="text-3xl font-bold text-white">33k</h2>
+            <p className="text-base font-normal text-center text-white">Monthly Prodouct Sale</p>
+          </div>
+
+          <div className="border rounded p-6 flex flex-col items-center justify-center">
+            <div className="bg-gray-200 rounded-full p-3 mb-4">
+              <div className="flex items-center justify-center w-[3.625rem] h-[3.625rem] rounded-full bg-black text-white">
+                <FaShoppingBag className="text-2xl" />
+              </div>
+            </div>
+            <h2 className="text-3xl font-bold">45.5k</h2>
+            <p className="text-base font-normal text-center">Customer active in our site</p>
+          </div>
+
+          <div className="border rounded p-6 flex flex-col items-center justify-center">
+            <div className="bg-gray-200 rounded-full p-3 mb-4">
+              <div className="flex items-center justify-center text-2xl w-[3.625rem] h-[3.625rem] rounded-full bg-black text-white">
+              <i class="fa-solid fa-sack-dollar"></i>
+              </div>
+            </div>
+            <h2 className="text-3xl font-bold">25k</h2>
+            <p className="text-sm font-normal text-center">Anual gross sale in our site</p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
