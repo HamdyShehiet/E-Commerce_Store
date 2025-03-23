@@ -6,6 +6,16 @@ function Account() {
   const [user, setUser] = useState(null);
   const [isSelect, setIsSelect] = useState("profile");
 
+  const [editFormInputs, setEditFormInputs] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    currentPassword: "",
+    newPassword: "",
+    confirmNewPassword: "",
+  });
+
   useEffect(() => {
     const LoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"));
     console.log(LoggedInUser);
@@ -71,7 +81,7 @@ function Account() {
                         <input
                           type="text"
                           name="firstName"
-                          // value={formData.firstName}
+                          value={user.name}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
                       </div>
@@ -91,7 +101,8 @@ function Account() {
                         <input
                           type="email"
                           name="email"
-                          // value={formData.email}
+                          readOnly
+                          value={user.email}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
                       </div>
