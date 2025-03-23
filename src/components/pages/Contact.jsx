@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 function Contact() {
   return (
     <>
-      <h1 className="text-4xl">Contact</h1>
       <section className="py-10">
         <div className="container mx-auto flex flex-col gap-12">
           <div className="flex items-center gap-2 font-[poppins] text-sm font-normal">
