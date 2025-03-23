@@ -12,7 +12,7 @@ function Cart() {
       behavior: "smooth",
     });
   }, []);
-  // console.log(cart)
+
   /**
    * Delete Product from the Cart When I Click On The Button
    */
@@ -48,7 +48,7 @@ function Cart() {
   function increase(product){
     console.log(product);
     const IncreaseQuantity = cart.map((item) =>
-      item.id === product.id
+    ( item.id === product.id && item.quantity < product.stock )
         ? { ...item, quantity: item.quantity + 1 }
         : item
     );
@@ -60,10 +60,7 @@ function Cart() {
   function decrease(product){
     console.log(product);
     const decreaseQuantity = cart.map((item) =>{
-      if(item.id !== product.id){
-        return item
-      }
-      if( item.quantity == 1){
+      if(item.id !== product.id || item.quantity === 1){
         return item
       }
       if(item.id === product.id){

@@ -54,7 +54,7 @@ function ProductsProvider({ children }) {
     const existProduct = cart.find((item) => item.id === product.id);
     console.log(existProduct);
     if (existProduct) {
-      const updatedCart = cart.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
+      const updatedCart = cart.map((item) => ((item.id === product.id && item.quantity < product.stock )? { ...item, quantity: item.quantity + 1 } : item));
       setCart(updatedCart);
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);

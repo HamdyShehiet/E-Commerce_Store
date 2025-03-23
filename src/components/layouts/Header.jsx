@@ -61,7 +61,7 @@ function Header(){
                             <i className="fa-solid fa-cart-shopping"></i>
                             { cart.length > 0 && <span className="absolute top-[-9px] right-[-10px] w-5 h-5 leading-5 text-center font-medium text-sm bg-red-500 text-white rounded-[50%]">{cart.length}</span>}
                         </Link>
-                        <button onClick={()=>{setMenu(!menu)}} className={`${menu ? "fa-xmark" : "fa-bars-staggered" } lg:hidden text-xl text-[--primaryTwo-clr]`}>
+                        <button onClick={()=>{setMenu(prev => !prev)}} className={`${menu ? "fa-xmark" : "fa-bars-staggered" } lg:hidden text-xl text-[--primaryTwo-clr]`}>
                             <i className="fa-solid"></i>
                         </button>
                         {LoggedInUser && <button onClick={()=>{setUserOptions(!userOptions)}}  className="avatar w-8 h-8 rounded-[50%] text-sm bg-red-500 text-white">

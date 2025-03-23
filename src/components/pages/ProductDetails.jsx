@@ -7,7 +7,7 @@ function ProductDetails() {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const { title, description, price, rating, availabilityStatus, stock, images = [], thumbnail, colours, sizes } = product || {};
 
@@ -24,7 +24,7 @@ function ProductDetails() {
       console.error("Error", error);
     } finally {
       setLoading(false);
-      setCount(0)
+      setCount(1);
       window.scrollTo(0, 0);
     }
   }
@@ -123,8 +123,8 @@ function ProductDetails() {
                   <ul className="flex items-center border-[--textTwo-clr] border-[1px] rounded font-[poppins]">
                     <li
                       onClick={() => {
-                        if (count > 0) {
-                          return setCount(count - 1);
+                        if (count > 1) {
+                          setCount(count - 1);
                         }
                       }}
                       className="py-1 px-3 text-xl text-black hover:bg-[--secondaryThree-clr] hover:text-white cursor-pointer"
@@ -134,9 +134,10 @@ function ProductDetails() {
                     <li className="py-1 px-8 text-xl text-black border-[--textTwo-clr] border-x-[1px]">{count}</li>
                     <li
                       onClick={() => {
-                        if(count !== stock){
-                        setCount(count + 1);
-                      }}}
+                        if (count < stock) {
+                          setCount(count + 1);
+                        }
+                      }}
                       className="py-1 px-3 text-xl text-black hover:bg-[--secondaryThree-clr] hover:text-white cursor-pointer"
                     >
                       +
@@ -177,7 +178,7 @@ function ProductDetails() {
           </div>
         </section>
       )}
-        <RelatedItem />
+      <RelatedItem />
     </>
   );
 }
