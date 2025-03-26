@@ -91,17 +91,17 @@ function About() {
                   <ul className="flex items-center gap-4 text-lg">
                     <li>
                       <a href={person.twitter} target="_blank">
-                        <i class="fa-brands fa-twitter"></i>
+                        <i className="fa-brands fa-twitter"></i>
                       </a>
                     </li>
                     <li>
                       <a href={person.instagram} target="_blank">
-                        <i class="fa-brands fa-instagram"></i>
+                        <i className="fa-brands fa-instagram"></i>
                       </a>
                     </li>
                     <li>
                       <a href={person.linkedIn} target="_blank">
-                        <i class="fa-brands fa-linkedin-in"></i>
+                        <i className="fa-brands fa-linkedin-in"></i>
                       </a>
                     </li>
                   </ul>
@@ -116,6 +116,39 @@ function About() {
             <li className="w-3 h-3 rounded-full bg-gray-300"></li>
             <li className="w-3 h-3 rounded-full bg-gray-300"></li>
           </ul>
+        </div>
+      </section>
+      <section className="py-10">
+        <div className="container mx-auto flex items-start justify-center flex-wrap pb-5 gap-20  font-[poppins]">
+          <div className="w-[min(17.5rem,_100%)] flex flex-col items-center text-center">
+            <div className="bg-gray-200 rounded-full p-3 mb-4">
+              <div className="flex items-center justify-center w-[3.625rem] h-[3.625rem] rounded-full bg-black text-white">
+                <img src="/icons/delivery.png" alt="Delivery Icon" />
+              </div>
+            </div>
+            <h3 className="text-lg font-bold mb-2">FREE AND FAST DELIVERY</h3>
+            <p className="text-sm text-gray-600">Free delivery for all orders over $140</p>
+          </div>
+
+          <div className="w-[min(17.5rem,_100%)] flex flex-col items-center text-center">
+            <div className="bg-gray-200 rounded-full p-3 mb-4">
+              <div className="flex items-center justify-center w-[3.625rem] h-[3.625rem] rounded-full bg-black text-white">
+              <img src="/icons/customer-service.png" alt="Customer Service Icon" />
+              </div>
+            </div>
+            <h3 className="text-lg font-bold mb-2">24/7 CUSTOMER SERVICE</h3>
+            <p className="text-sm text-gray-600">Friendly 24/7 customer support</p>
+          </div>
+
+          <div className="w-[min(17.5rem,_100%)] flex flex-col items-center text-center">
+            <div className="bg-gray-200 rounded-full p-3 mb-4">
+              <div className="flex items-center justify-center w-[3.625rem] h-[3.625rem] rounded-full bg-black text-white">
+              <img src="/icons/secure.png" alt="Secure Icon" />
+              </div>
+            </div>
+            <h3 className="text-lg font-bold mb-2">MONEY BACK GUARANTEE</h3>
+            <p className="text-sm text-gray-600">We return money within 30 days</p>
+          </div>
         </div>
       </section>
     </>
