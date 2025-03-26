@@ -126,8 +126,8 @@ function About() {
                 <img src="/icons/delivery.png" alt="Delivery Icon" />
               </div>
             </div>
-            <h3 className="text-lg font-bold mb-2">FREE AND FAST DELIVERY</h3>
-            <p className="text-sm text-gray-600">Free delivery for all orders over $140</p>
+            <h3 className="text-xl font-semibold mb-2 text-black ">FREE AND FAST DELIVERY</h3>
+            <p className="text-sm text-black">Free delivery for all orders over $140</p>
           </div>
 
           <div className="w-[min(17.5rem,_100%)] flex flex-col items-center text-center">
@@ -136,8 +136,8 @@ function About() {
               <img src="/icons/customer-service.png" alt="Customer Service Icon" />
               </div>
             </div>
-            <h3 className="text-lg font-bold mb-2">24/7 CUSTOMER SERVICE</h3>
-            <p className="text-sm text-gray-600">Friendly 24/7 customer support</p>
+            <h3 className="text-xl font-semibold mb-2 text-black ">24/7 CUSTOMER SERVICE</h3>
+            <p className="text-sm text-black">Friendly 24/7 customer support</p>
           </div>
 
           <div className="w-[min(17.5rem,_100%)] flex flex-col items-center text-center">
@@ -146,8 +146,8 @@ function About() {
               <img src="/icons/secure.png" alt="Secure Icon" />
               </div>
             </div>
-            <h3 className="text-lg font-bold mb-2">MONEY BACK GUARANTEE</h3>
-            <p className="text-sm text-gray-600">We return money within 30 days</p>
+            <h3 className="text-xl font-semibold mb-2 text-black ">MONEY BACK GUARANTEE</h3>
+            <p className="text-sm text-black">We return money within 30 days</p>
           </div>
         </div>
       </section>
