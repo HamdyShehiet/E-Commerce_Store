@@ -80,33 +80,42 @@ function About() {
         </div>
       </section>
       <section className="py-10">
-        <div className="container mx-auto grid grid-cols-[repeat(auto-fit,min(23.125rem,_100%))] justify-center gap-8 font-[poppins]">
-          {teamData?.map((person) => {
-            return (
-              <div key={person.id} >
-                <img src={person.imageUrl} alt={person.name} className="mb-4" />
-                <h3 className="text-3xl font-medium text-black">{person.name}</h3>
-                <p className="mb-3 text-base text-black">{person.role}</p>
-                <ul className="flex items-center gap-4 text-lg">
-                  <li>
-                    <a href={person.twitter} target="_blank">
-                      <i class="fa-brands fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={person.instagram} target="_blank">
-                      <i class="fa-brands fa-instagram"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={person.linkedIn} target="_blank">
-                      <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            );
-          })}
+        <div className="container mx-auto  font-[poppins]">
+          <div className="grid grid-cols-[repeat(auto-fit,min(23.125rem,_100%))] justify-center gap-8">
+            {teamData?.map((person) => {
+              return (
+                <div key={person.id}>
+                  <img src={person.imageUrl} alt={person.name} className="mb-4" />
+                  <h3 className="text-3xl font-medium text-black">{person.name}</h3>
+                  <p className="mb-3 text-base text-black">{person.role}</p>
+                  <ul className="flex items-center gap-4 text-lg">
+                    <li>
+                      <a href={person.twitter} target="_blank">
+                        <i class="fa-brands fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href={person.instagram} target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href={person.linkedIn} target="_blank">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+          <ul className="flex justify-center gap-2 mt-12">
+            <li className="w-3 h-3 rounded-full bg-gray-300"></li>
+            <li className="w-3 h-3 rounded-full bg-gray-300"></li>
+            <li className="w-3 h-3 rounded-full outline border-[#ffffff] border-solid border-[2px] bg-red-500"></li>
+            <li className="w-3 h-3 rounded-full bg-gray-300"></li>
+            <li className="w-3 h-3 rounded-full bg-gray-300"></li>
+          </ul>
         </div>
       </section>
     </>
