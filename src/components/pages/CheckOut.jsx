@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ProductsContext } from "../../context/Products";
 import { Link } from "react-router-dom";
+import { ProductsContext } from "../../context/Products";
 
 function CheckOut() {
   const { cart, totalPrice } = useContext(ProductsContext);

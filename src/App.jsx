@@ -13,11 +13,11 @@ import Footer from "./components/layouts/Footer";
 import NotFound from "./components/pages/NotFound";
 import WishList from "./components/pages/Wishlist";
 import Products from "./components/pages/Products";
+import CheckOut from "./components/pages/CheckOut";
 import ProductDetails from "./components/pages/ProductDetails";
+import ProductsProvider from "./components/utils/ProductsProvider";
 import CategoriesProducts from "./components/pages/CategoryProducts";
 import CategoriesProvider from "./components/utils/CategoriestProvider";
-import ProductsProvider from "./components/utils/ProductsProvider";
-import CheckOut from "./components/pages/CheckOut";
 
 function App() {
   return (

@@ -45,6 +45,7 @@ function Account() {
           </div>
 
           <div className="grid lg:grid-cols-[12.625rem,_44rem] lg:justify-between gap-y-8 font-[poppins]">
+            
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-3">
                 <h3 className="font-medium text-base text-black">Manage My Account</h3>

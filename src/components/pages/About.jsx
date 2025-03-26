@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { CiShop } from "react-icons/ci";
 import { FaShoppingBag } from "react-icons/fa";
+import teamData from "../../teamData/teamData.json";
 import { MdOutlineAttachMoney } from "react-icons/md";
+
 function About() {
+  console.log(teamData);
+
   return (
     <>
       <section className="py-10">
@@ -47,7 +51,7 @@ function About() {
           <div className="border rounded p-6 flex flex-col items-center justify-center bg-[--secondaryThree-clr]">
             <div className="bg-gray-300 bg-opacity-20 rounded-full p-3 mb-4">
               <div className="flex items-center justify-center w-[3.625rem] h-[3.625rem] rounded-full bg-white text-black">
-                <MdOutlineAttachMoney className="text-3xl"/>
+                <MdOutlineAttachMoney className="text-3xl" />
               </div>
             </div>
             <h2 className="text-3xl font-bold text-white">33k</h2>
@@ -67,12 +71,42 @@ function About() {
           <div className="border rounded p-6 flex flex-col items-center justify-center">
             <div className="bg-gray-200 rounded-full p-3 mb-4">
               <div className="flex items-center justify-center text-2xl w-[3.625rem] h-[3.625rem] rounded-full bg-black text-white">
-              <i class="fa-solid fa-sack-dollar"></i>
+                <i className="fa-solid fa-sack-dollar"></i>
               </div>
             </div>
             <h2 className="text-3xl font-bold">25k</h2>
             <p className="text-sm font-normal text-center">Anual gross sale in our site</p>
           </div>
+        </div>
+      </section>
+      <section className="py-10">
+        <div className="container mx-auto grid grid-cols-[repeat(auto-fit,min(23.125rem,_100%))] justify-center gap-8 font-[poppins]">
+          {teamData?.map((person) => {
+            return (
+              <div key={person.id} >
+                <img src={person.imageUrl} alt={person.name} className="mb-4" />
+                <h3 className="text-3xl font-medium text-black">{person.name}</h3>
+                <p className="mb-3 text-base text-black">{person.role}</p>
+                <ul className="flex items-center gap-4 text-lg">
+                  <li>
+                    <a href={person.twitter} target="_blank">
+                      <i class="fa-brands fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href={person.instagram} target="_blank">
+                      <i class="fa-brands fa-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href={person.linkedIn} target="_blank">
+                      <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </section>
     </>

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "imageUrl":"/images/person1.png",
+    "name": "Tom Cruise",
+    "role": "Founder & Chairman",
+    "twitter": "https://twitter.com/",
+    "instagram": "https://www.instagram.com/",
+    "linkedIn": "https://www.linkedin.com/login/ar"
+  },
+  {
+    "id": 2,
+    "imageUrl":"/images/person2.png",
+    "name": "Emma Watson",
+    "role": "Managing Director",
+    "twitter": "https://twitter.com/",
+    "instagram": "https://www.instagram.com/",
+    "linkedIn": "https://www.linkedin.com/login/ar"
+  },
+  {
+    "id": 3,
+    "imageUrl":"/images/person3.png",
+    "name": "Will Smith",
+    "role": "Product Designer",
+    "twitter": "https://twitter.com/",
+    "instagram": "https://www.instagram.com/",
+    "linkedIn": "https://www.linkedin.com/login/ar"
+  }
+]
