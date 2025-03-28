@@ -1,37 +1,72 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { UsersContext } from "../../context/Users";
 
 function Account() {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  const { users, setUsers } = useContext(UsersContext)
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("LoggedInUser")));
   const [isSelect, setIsSelect] = useState("profile");
-
   const [editFormInputs, setEditFormInputs] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    address: "",
+    firstName: user.name || "",
+    lastName: user.lastName || "",
+    email: user.email || "",
+    address: user.address || "",
     currentPassword: "",
     newPassword: "",
     confirmNewPassword: "",
   });
 
+  
   useEffect(() => {
-    const LoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"));
-    console.log(LoggedInUser);
-    console.log(user);
-    if (LoggedInUser) {
-      setUser(LoggedInUser);
-    } else {
-      console.log("You are not Loggeg In ");
+    const LoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"))
+    if(!LoggedInUser){
+      console.log("You are not Logged In ");
       navigate("/login");
+    }else{
+      setUser(LoggedInUser)
+      console.log("You are Logged In ");
     }
   }, []);
+
+
+  const saveChanges =()=>{
+    const updatedUserData = {
+      ...user,
+      name: editFormInputs.firstName,
+      lastName: editFormInputs.lastName ,
+      address: editFormInputs.address,
+      currentPassword: editFormInputs.currentPassword,
+      newPassword: editFormInputs.newPassword,
+      confirmNewPassword: editFormInputs.confirmNewPassword,
+    }
+    console.log(updatedUserData)
+    UpdateUsers(updatedUserData)
+  }
+
+  
+  const UpdateUsers =(updatedUserData)=>{
+    const updatedUsersData = users.map((item)=>
+      item.id === updatedUserData.id ? updatedUserData : item
+    )
+    setUsers(updatedUsersData)
+    localStorage.setItem("LoggedInUser",JSON.stringify(updatedUserData))
+    setEditFormInputs({
+      firstName: user.name || "",
+      lastName: user.lastName,
+      email: user.email || "",
+      address: user.address || "",
+      currentPassword: "",
+      newPassword: "",
+      confirmNewPassword: "",
+    })
+    console.log(users)
+  }
+
 
   const selectChange = (showLayout) => {
     setIsSelect(showLayout);
   };
-
 
   return (
     <>
@@ -75,14 +110,15 @@ function Account() {
               <div className="profileForm py-10 px-[4rem] rounded shadow-md">
                 <div className="flex flex-col gap-4">
                   <h2 className="text-xl text-[--secondaryThree-clr] font-medium">Edit Your Profile</h2>
-                  <form className="grid gap-6">
+                  <form onSubmit={(e)=>e.preventDefault()} className="grid gap-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-normal text-base text-black">
                       <div>
                         <label className="block mb-1">First Name</label>
                         <input
                           type="text"
                           name="firstName"
-                          value={user.name}
+                          value={editFormInputs.firstName}
+                          onChange={(e)=>setEditFormInputs({...editFormInputs, firstName: e.target.value })}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
                       </div>
@@ -92,7 +128,8 @@ function Account() {
                         <input
                           type="text"
                           name="lastName"
-                          // value={formData.lastName}
+                          value={editFormInputs.lastName}
+                          onChange={(e)=>setEditFormInputs({...editFormInputs, lastName: e.target.value })}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
                       </div>
@@ -103,7 +140,8 @@ function Account() {
                           type="email"
                           name="email"
                           readOnly
-                          value={user.email}
+                          value={editFormInputs.email}
+                          onChange={(e)=>setEditFormInputs({...editFormInputs, email: e.target.value })}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
                       </div>
@@ -113,7 +151,8 @@ function Account() {
                         <input
                           type="text"
                           name="address"
-                          // value={formData.address}
+                          value={editFormInputs.address}
+                          onChange={(e)=>setEditFormInputs({...editFormInputs, address: e.target.value })}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
                       </div>
@@ -126,7 +165,8 @@ function Account() {
                           type="password"
                           name="currentPassword"
                           placeholder="Current Password"
-                          // value={formData.currentPassword}
+                          value={editFormInputs.currentPassword}
+                          onChange={(e)=>setEditFormInputs({...editFormInputs, currentPassword: e.target.value })}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
 
@@ -134,7 +174,8 @@ function Account() {
                           type="password"
                           name="newPassword"
                           placeholder="New Password"
-                          // value={formData.newPassword}
+                          value={editFormInputs.newPassword}
+                          onChange={(e)=>setEditFormInputs({...editFormInputs, newPassword: e.target.value })}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
 
@@ -142,7 +183,8 @@ function Account() {
                           type="password"
                           name="confirmPassword"
                           placeholder="Confirm New Password"
-                          // value={formData.confirmPassword}
+                          value={editFormInputs.confirmNewPassword}
+                          onChange={(e)=>setEditFormInputs({...editFormInputs, confirmNewPassword: e.target.value })}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
                       </div>
@@ -153,6 +195,7 @@ function Account() {
                         Cancel
                       </button>
                       <input
+                      onClick={()=>saveChanges()}
                         type="submit"
                         value="Save Changes"
                         className="py-3 px-8 rounded-[4px] text-base font-medium  bg-[--secondaryThree-clr] hover:bg-[--hoverBtnOne-clr] text-[--textOne-clr] cursor-pointer"

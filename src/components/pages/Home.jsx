@@ -1,4 +1,5 @@
 import Hero from "../utils/Hero";
+import Features from "../utils/Features";
 import FlashSell from "../utils/FlashSell";
 import FlashSales from "../utils/FlashSales";
 import BestSelling from "../utils/BestSelling";
@@ -15,6 +16,7 @@ function Home() {
       <BestSelling />
       <FlashSell />
       <ExploreProducts />
+      <Features />
     </>
   );
 }

@@ -18,6 +18,7 @@ import ProductDetails from "./components/pages/ProductDetails";
 import ProductsProvider from "./components/utils/ProductsProvider";
 import CategoriesProducts from "./components/pages/CategoryProducts";
 import CategoriesProvider from "./components/utils/CategoriestProvider";
+import UsersProvider from "./components/utils/UsersProvider";
 
 function App() {
   return (
@@ -28,21 +29,23 @@ function App() {
           <Header />
         </CategoriesProvider>
         <main>
-          <Routes>
-            <Route path="*" element={<NotFound />} />
-            <Route path="/category/:categoryName" element={<CategoriesProducts />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<CheckOut />} />
-            <Route path="/wishlist" element={<WishList />} />
-            <Route path="/products" element={<Products />} />
-          </Routes>
+          <UsersProvider>
+            <Routes>
+              <Route path="*" element={<NotFound />} />
+              <Route path="/category/:categoryName" element={<CategoriesProducts />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/login" element={<LogIn />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<CheckOut />} />
+              <Route path="/wishlist" element={<WishList />} />
+              <Route path="/products" element={<Products />} />
+            </Routes>
+          </UsersProvider>
         </main>
       </ProductsProvider>
       <Footer />

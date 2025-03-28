@@ -1,30 +1,20 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import { UsersContext } from "../../context/Users";
 
 function SignUp() {
-  const [users, setUsers] = useState(() => {
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    return storedUsers;
-  });
-
+  const {users, setUsers} = useContext(UsersContext)
+  
   const [registerFormInputs, setRegisterFormInputs] = useState({
     name: "",
     email: "",
     password: "",
   });
-
   const { name, email, password } = registerFormInputs;
 
   const [errors, setErrors] = useState({});
-
-
-
-  useEffect(() => {
-    localStorage.setItem("users", JSON.stringify(users));
-  }, [users]);
-
 
   
   const showToastMessage = () => {
