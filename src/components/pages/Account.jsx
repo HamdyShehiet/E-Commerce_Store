@@ -42,13 +42,12 @@ function Account() {
     }
     console.log(updatedUserData)
     UpdateUsers(updatedUserData)
+    setUser(updatedUserData)
   }
 
   
   const UpdateUsers =(updatedUserData)=>{
-    const updatedUsersData = users.map((item)=>
-      item.id === updatedUserData.id ? updatedUserData : item
-    )
+    const updatedUsersData = users.map((item)=>item.id === updatedUserData.id ? updatedUserData : item)
     setUsers(updatedUsersData)
     localStorage.setItem("LoggedInUser",JSON.stringify(updatedUserData))
     setEditFormInputs({
