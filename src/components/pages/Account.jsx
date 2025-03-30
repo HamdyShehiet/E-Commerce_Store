@@ -5,7 +5,7 @@ import { UsersContext } from "../../context/Users";
 function Account() {
   const navigate = useNavigate();
   const { users, setUsers } = useContext(UsersContext)
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("LoggedInUser")));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("LoggedInUser")) || {});
   const [isSelect, setIsSelect] = useState("profile");
   const [editFormInputs, setEditFormInputs] = useState({
     firstName: user.name || "",
@@ -26,7 +26,7 @@ function Account() {
       setUser(LoggedInUser)
       console.log("You are Logged In ");
     }
-  }, []);
+  }, [navigate]);
   
   const selectChange = (showLayout) => {
     setIsSelect(showLayout);
@@ -34,19 +34,35 @@ function Account() {
 
   
   const saveChanges =()=>{
-    if( !editFormInputs.lastName && !editFormInputs.address) return;
-      const updatedUserData = {
-        ...user,
-        name: editFormInputs.firstName,
-        lastName: editFormInputs.lastName ,
-        address: editFormInputs.address,
-        currentPassword: editFormInputs.currentPassword,
-        newPassword: editFormInputs.newPassword,
-        confirmNewPassword: editFormInputs.confirmNewPassword,
-      }
-      UpdateUsers(updatedUserData)
-      console.log(updatedUserData)
-      console.log("fjfjjfjfj")
+    if (!editFormInputs.firstName) {
+      console.log("First name is required.");
+      return;
+    }
+
+    if (editFormInputs.currentPassword !== user.password) {
+      console.log("Current password is incorrect.");
+      return;
+    }
+
+    if (editFormInputs.newPassword === editFormInputs.currentPassword) {
+      console.log("New password must be different from the current password.");
+      return;
+    }
+
+    if (editFormInputs.newPassword !== editFormInputs.confirmNewPassword) {
+      console.log("New password and confirm password do not match.");
+      return;
+    }
+            const updatedUserData = {
+          ...user,
+          name: editFormInputs.firstName,
+          lastName: editFormInputs.lastName ,
+          address: editFormInputs.address,
+          password: editFormInputs.newPassword,
+        }
+        UpdateUsers(updatedUserData)
+        console.log(updatedUserData)
+        console.log(updatedUserData.password)
   }
 
   
@@ -66,6 +82,7 @@ function Account() {
     })
     console.log(users)
   }
+
 
   const cancel = () => {
     setEditFormInputs({
