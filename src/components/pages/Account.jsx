@@ -17,7 +17,6 @@ function Account() {
     confirmNewPassword: "",
   });
 
-  
   useEffect(() => {
     const LoggedInUser = JSON.parse(localStorage.getItem("LoggedInUser"))
     if(!LoggedInUser){
@@ -28,21 +27,26 @@ function Account() {
       console.log("You are Logged In ");
     }
   }, []);
+  
+  const selectChange = (showLayout) => {
+    setIsSelect(showLayout);
+  };
 
-
+  
   const saveChanges =()=>{
-    const updatedUserData = {
-      ...user,
-      name: editFormInputs.firstName,
-      lastName: editFormInputs.lastName ,
-      address: editFormInputs.address,
-      currentPassword: editFormInputs.currentPassword,
-      newPassword: editFormInputs.newPassword,
-      confirmNewPassword: editFormInputs.confirmNewPassword,
-    }
-    console.log(updatedUserData)
-    UpdateUsers(updatedUserData)
-    setUser(updatedUserData)
+    if( !editFormInputs.lastName && !editFormInputs.address) return;
+      const updatedUserData = {
+        ...user,
+        name: editFormInputs.firstName,
+        lastName: editFormInputs.lastName ,
+        address: editFormInputs.address,
+        currentPassword: editFormInputs.currentPassword,
+        newPassword: editFormInputs.newPassword,
+        confirmNewPassword: editFormInputs.confirmNewPassword,
+      }
+      UpdateUsers(updatedUserData)
+      console.log(updatedUserData)
+      console.log("fjfjjfjfj")
   }
 
   
@@ -50,11 +54,12 @@ function Account() {
     const updatedUsersData = users.map((item)=>item.id === updatedUserData.id ? updatedUserData : item)
     setUsers(updatedUsersData)
     localStorage.setItem("LoggedInUser",JSON.stringify(updatedUserData))
+    setUser(updatedUserData)
     setEditFormInputs({
-      firstName: user.name || "",
-      lastName: user.lastName,
-      email: user.email || "",
-      address: user.address || "",
+      firstName: updatedUserData.name || "",
+      lastName: updatedUserData.lastName,
+      email: updatedUserData.email || "",
+      address: updatedUserData.address || "",
       currentPassword: "",
       newPassword: "",
       confirmNewPassword: "",
@@ -62,10 +67,18 @@ function Account() {
     console.log(users)
   }
 
-
-  const selectChange = (showLayout) => {
-    setIsSelect(showLayout);
+  const cancel = () => {
+    setEditFormInputs({
+      firstName: user.name || "",
+      lastName: user.lastName || "",
+      email: user.email || "",
+      address: user.address || "",
+      currentPassword: "",
+      newPassword: "",
+      confirmNewPassword: "",
+    });
   };
+
 
   return (
     <>
@@ -140,7 +153,6 @@ function Account() {
                           name="email"
                           readOnly
                           value={editFormInputs.email}
-                          onChange={(e)=>setEditFormInputs({...editFormInputs, email: e.target.value })}
                           className="w-full p-3 border-none outline-none rounded bg-[--secondaryTwo-clr] "
                         />
                       </div>
@@ -190,7 +202,7 @@ function Account() {
                     </div>
 
                     <div className="flex justify-end gap-10 mt-1">
-                      <button type="button" className="">
+                      <button onClick={()=>cancel()} type="button" className="">
                         Cancel
                       </button>
                       <input
