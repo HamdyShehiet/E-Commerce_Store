@@ -86,7 +86,7 @@ function Cart() {
                   <th className="px-3 py-6">Product Name</th>
                   <th className="px-3 py-6">Date</th>
                   <th className="px-3 py-6">Price</th>
-                  <th className="px-3 py-6">Quatity</th>
+                  <th className="px-3 py-6">Quantity</th>
                   <th className="px-3 py-6">Total</th>
                   <th className="px-3 py-6"></th>
                 </tr>
