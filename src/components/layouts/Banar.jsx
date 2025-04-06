@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function Banar(){
     const [language, setLanguage] = useState("en");
-    // console.log(language);
+    console.log(language);
     return(
         <div className="sticky top-0 z-[9] bg-black py-2">
             <div className="container flex items-center mx-auto font-[Poppins]">
