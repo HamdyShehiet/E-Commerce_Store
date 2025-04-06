@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./assets/styles/App.css";
 import Cart from "./components/pages/Cart";
 import Home from "./components/pages/Home";
@@ -11,16 +12,14 @@ import NotFound from "./components/pages/NotFound";
 import WishList from "./components/pages/Wishlist";
 import Products from "./components/pages/Products";
 import CheckOut from "./components/pages/CheckOut";
-import ProductDetails from "./components/pages/ProductDetails";
-import ProductsProvider from "./components/providers/ProductsProvider";
-import CategoriesProducts from "./components/pages/CategoryProducts";
-import UsersProvider from "./components/providers/UsersProvider";
 import PageLayout from "./components/layouts/PageLayout";
+import ProductDetails from "./components/pages/ProductDetails";
 import AppProviders from "./components/providers/AppProviders";
+import CategoriesProducts from "./components/pages/CategoryProducts";
 
 function App() {
+
   return (
-    <>
         <AppProviders>
         <Routes>
             <Route element={<PageLayout />}>
@@ -40,7 +39,6 @@ function App() {
             </Route>
           </Routes>
         </AppProviders>
-    </>
   );
 }
 
