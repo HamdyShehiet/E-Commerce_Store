@@ -4,7 +4,6 @@ import Header from "./Header";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import CategoriesProvider from "../providers/CategoriestProvider";
 
 function PageLayout() {
   const [locale, setLocale] = useState(localStorage.getItem("i18nextLng"));
@@ -26,9 +25,7 @@ function PageLayout() {
   return (
     <div dir={locale === "en" ? "ltr" : "rtl"}>
       <Banner locale={locale} changeLanguage={changeLanguage} />
-      <CategoriesProvider>
         <Header />
-      </CategoriesProvider>
       <Outlet />
       <Footer />
     </div>
