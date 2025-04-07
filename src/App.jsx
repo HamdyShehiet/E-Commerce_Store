@@ -1,10 +1,9 @@
-import { useState } from "react";
 import "./assets/styles/App.css";
 import Cart from "./components/pages/Cart";
 import Home from "./components/pages/Home";
-import LogIn from "./components/pages/LogIn";
+import LogIn from "./components/auth/LogIn";
 import About from "./components/pages/About";
-import SignUp from "./components/pages/SignUp";
+import SignUp from "./components/auth/SignUp";
 import { Route, Routes } from "react-router-dom";
 import Account from "./components/pages/Account";
 import Contact from "./components/pages/Contact";

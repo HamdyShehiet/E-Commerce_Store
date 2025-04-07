@@ -1,4 +1,4 @@
-import Banar from "./Banar";
+import Banner from "./Banner";
 import Footer from "./Footer";
 import Header from "./Header";
 import { useState } from "react";
@@ -25,7 +25,7 @@ function PageLayout() {
 
   return (
     <div dir={locale === "en" ? "ltr" : "rtl"}>
-      <Banar locale={locale} changeLanguage={changeLanguage} />
+      <Banner locale={locale} changeLanguage={changeLanguage} />
       <CategoriesProvider>
         <Header />
       </CategoriesProvider>
