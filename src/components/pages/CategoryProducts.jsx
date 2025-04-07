@@ -1,5 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import Spinner from "../ui/Spinners/Spinner";
 import { Link, useParams } from "react-router-dom"
+import { useContext, useEffect, useState } from "react";
 import { ProductsContext } from "../../context/Products";
 
 
@@ -32,7 +33,7 @@ function CategoryProducts() {
     return (
         <section className="py-12">
             <div className="container mx-auto grid grid-cols-[repeat(auto-fit,min(18.125rem,_100%))] justify-center  gap-8 font-[poppins]">
-                    {   loading ? <p>Loadin....</p> : error ? <p>Not Found</p> :
+                    {   loading ? <Spinner /> : error ? <p>Not Found</p> :
                         products?.map((product)=>{
                             const {
                                 id,

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Spinner from "../ui/Spinners/Spinner";
 import RelatedItem from "../utils/RelatedItem";
 
 function ProductDetails() {
@@ -34,7 +35,7 @@ function ProductDetails() {
   return (
     <>
       {loading ? (
-        <p>Loading....</p>
+        <Spinner />
       ) : error ? (
         <p>Not Found</p>
       ) : (

@@ -7,10 +7,10 @@ function UsersProvider({ children }) {
       return storedUsers;
     });
 
-
     useEffect(() => {
       localStorage.setItem("users", JSON.stringify(users));
     }, [users]);
+    
   return (
     <UsersContext.Provider
       value={{
