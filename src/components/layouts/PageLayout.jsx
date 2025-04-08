@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 function PageLayout() {
-  const [locale, setLocale] = useState(localStorage.getItem("i18nextLng"));
+  const [locale, setLocale] = useState(localStorage.getItem("i18nextLng") || "en");
   const { i18n } = useTranslation();
 
   /**

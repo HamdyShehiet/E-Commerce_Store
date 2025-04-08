@@ -1,8 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
 import { UsersContext } from "../../context/Users";
+import { ToastContainer, toast } from "react-toastify";
 
 function SignUp() {
   const {users, setUsers} = useContext(UsersContext)
@@ -13,22 +14,7 @@ function SignUp() {
     password: "",
   });
   const { name, email, password } = registerFormInputs;
-
   const [errors, setErrors] = useState({});
-
-  
-  const showToastMessage = () => {
-    toast.success("SignUp Successful", {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
 
   const signUpValidate = () => {
     const newErrors = {};
@@ -72,22 +58,23 @@ function SignUp() {
       const existUser = users.find((item) =>  item.email === email)
       console.log(existUser)
       if(!existUser){
-        setUsers([...users, { ...registerFormInputs, id: users.length + 1 }]);
+        setUsers([...users, { ...registerFormInputs, id: uuidv4(), cart: [], wishist: []}]);
         console.log(users);
         console.log("SignUp Successful");
-        showToastMessage();
+        toast.success("SignUp Successful");
+        setRegisterFormInputs({
+          name: "",
+          email: "",
+          password: "",
+        });
       }else{
+        toast.error("This user has already been used");
         console.log("This Email has already used")
       }
     }else {
       // Only check
       console.log(errors);
     }
-    setRegisterFormInputs({
-      name: "",
-      email: "",
-      password: "",
-    });
   };
 
   return (

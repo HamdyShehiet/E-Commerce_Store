@@ -17,27 +17,26 @@ import AppProviders from "./components/providers/AppProviders";
 import CategoriesProducts from "./components/pages/CategoryProducts";
 
 function App() {
-
   return (
-        <AppProviders>
-        <Routes>
-            <Route element={<PageLayout />}>
-              <Route path="*" element={<NotFound />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/login" element={<LogIn />} />
-              <Route path="/account" element={<Account />} />
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/wishlist" element={<WishList />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<CheckOut />} />
-              <Route path="/category/:categoryName" element={<CategoriesProducts />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/product/:id" element={<ProductDetails />} />
-            </Route>
-          </Routes>
-        </AppProviders>
+    <AppProviders>
+      <Routes>
+        <Route element={<PageLayout />}>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/wishlist" element={<WishList />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/category/:categoryName" element={<CategoriesProducts />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Route>
+      </Routes>
+    </AppProviders>
   );
 }
 
