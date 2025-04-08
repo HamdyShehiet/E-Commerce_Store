@@ -26,7 +26,7 @@ function Footer(){
                         <span className="text-xl font-medium">Accout</span>
                         <ul className="flex flex-col gap-4 text-base font-normal">
                             <li><Link to="/account">My Account</Link></li>
-                            <li><Link to="/login">Login / Register</Link></li>
+                            <li><Link to="/login">Login</Link> / <Link to="/signup">Register</Link></li>
                             <li><Link to="/cart">Cart</Link></li>
                             <li><Link to="/wishlist">Wishlist</Link></li>
                             <li><Link to="/">Shop</Link></li>
