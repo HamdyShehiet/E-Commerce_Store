@@ -25,7 +25,7 @@ function PageLayout() {
   return (
     <div dir={locale === "en" ? "ltr" : "rtl"}>
       <Banner locale={locale} changeLanguage={changeLanguage} />
-        <Header />
+      <Header />
       <Outlet />
       <Footer />
     </div>

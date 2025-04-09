@@ -40,24 +40,6 @@ body::-webkit-scrollbar,
   padding-inline: 0.75rem;
 }
 @media (max-width: 1023px) {
-  header .container nav ul {
-    display: none;
-    position: absolute;
-    right: 12px;
-    top: 60px;
-    z-index: 9;
-    max-width: 240px;
-    width: 100%;
-    padding: 10px 24px;
-    border-radius: 2px;
-    transition: all 700ms ease;
-    color: var(--primaryTwo-clr);
-    background-color: var(--primaryOne-clr);
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 0.2);
-  }
-  header .container nav ul.menu {
-    display: block;
-  }
   header .container nav ul li a {
     display: block;
     margin-block: 12px;
@@ -79,13 +61,6 @@ body::-webkit-scrollbar,
   }
   header .container nav .search-box.active {
     display: flex;
-  }
-}
-@media (min-width: 1024px) {
-  header .container nav ul {
-    display: flex;
-    align-items: center;
-    gap: 25px;
   }
 }
 @media (min-width: 1024px) {
