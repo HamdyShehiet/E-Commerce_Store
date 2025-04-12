@@ -58,7 +58,8 @@ function SignUp() {
       const existUser = users.find((item) =>  item.email === email)
       console.log(existUser)
       if(!existUser){
-        setUsers([...users, { ...registerFormInputs, id: uuidv4(), cart: [], wishist: []}]);
+        const updatedUsers = [...users, { ...registerFormInputs, id: uuidv4(), cart: [], wishist: []}]
+        setUsers(updatedUsers);
         console.log(users);
         console.log("SignUp Successful");
         toast.success("SignUp Successful");
